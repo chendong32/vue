@@ -39,7 +39,7 @@
         this.error = this.get = null
         this.loading = true
         // replace getPost with your data fetching util / API wrapper
-        this.$http.get('/api/activiti/login.do').then((get,err)=>{
+        this.$http.get('/static/json/data.json').then((get,err)=>{
             this.loading = false
 
             if (err) {
