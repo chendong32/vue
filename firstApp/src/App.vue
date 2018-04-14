@@ -1,18 +1,21 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <div class="nav">
     <ul class = "nav-parent">
       <!-- 使用 router-link 组件来导航. -->
       <!-- 通过传入 `to` 属性指定链接. -->
       <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
-      <li class = "nav-child" @click = "getPosition(0)" :class="{'active': 0 == index}"><router-link to="/" >首页</router-link></li>
-      <li class = "nav-child" @click = "getPosition(1)" :class="{'active': 1 == index}"><router-link to="/bar">Go to Bar</router-link></li>
-      <li class = "nav-child" @click = "getPosition(2)" :class="{'active': 2 == index}"><router-link to="/foo/attrs">Go to Foo</router-link></li>
-      <li class = "nav-child" @click = "getPosition(3)" :class="{'active': 3 == index}"><router-link to="/foo">Go to Foo</router-link></li>
+      <li class = "nav-child active" :style="{width:activeWidth + 'px' , left:activeLeft + 'px'}" ></li>
+      <li class = "nav-child" @mouseover = "getPosition" @mouseout = "movePosition" @click = "choose(0,$event)" :class="{'choose':index == 0}"><router-link to="/" >首页</router-link></li>
+      <li class = "nav-child" @mouseover = "getPosition" @mouseout = "movePosition" @click = "choose(1,$event)" :class="{'choose':index == 1}"><router-link to="/bar">Go to Bar</router-link></li>
+      <li class = "nav-child" @mouseover = "getPosition" @mouseout = "movePosition" @click = "choose(2,$event)" :class="{'choose':index == 2}"><router-link to="/foo/attrs">Go to Foo</router-link></li>
+      <li class = "nav-child" @mouseover = "getPosition" @mouseout = "movePosition" @click = "choose(3,$event)" :class="{'choose':index == 3}"><router-link to="/foo">Go to Foo</router-link></li>
+      <li class = "nav-child" @mouseover = "getPosition" @mouseout = "movePosition" @click = "choose(4,$event)" :class="{'choose':index == 4}"><router-link to="/foo">Go to Foo</router-link></li>
+      <li class = "nav-child" @mouseover = "getPosition" @mouseout = "movePosition" @click = "choose(5,$event)" :class="{'choose':index == 5}"><router-link to="/foo">Go to Foo</router-link></li>
 
     </ul>
     </div>
+
     <!-- 路由出口 -->
     <!-- 路由匹配到的组件将渲染在这里 -->
     <router-view></router-view>
@@ -20,18 +23,36 @@
 </template>
 
 <script>
+  import $ from 'jquery'
 export default {
   name: 'App',
   data(){
     return {
-      index: 0
+      index: 0,
+      activeWidth : 0,
+      activeLeft : 0
     }
   },
   methods:{
 
-    getPosition:function (index) {
+    getPosition:function (event) {
+      var el = event.currentTarget;
+      this.activeLeft = el.getBoundingClientRect().left;
+      this.activeWidth = el.getBoundingClientRect().width;
+      $('.active').stop().animate({'left':this.activeLeft,'width':this.activeWidth}, 300);
+    },
+    choose:function (index,event) {
       this.index = index;
+      var el = event.currentTarget;
+      this.activeLeft = el.getBoundingClientRect().left;
+      this.activeWidth = el.getBoundingClientRect().width;
+    },
+    movePosition:function () {
+      this.activeLeft = $('.choose').position().left;
+      this.activeWidth = $('.choose').width();
+      $('.active').stop().animate({'left':this.activeLeft,'width':this.activeWidth}, 300);
     }
+
   }
 }
 </script>
@@ -55,6 +76,7 @@ export default {
 
   }
   .nav-child{
+    position: relative;
     float : left;
     text-align: center;
     line-height: 40px;
@@ -74,6 +96,8 @@ export default {
     color: #ffffff;
   }
   .active{
+    position: absolute;
     background: #008CBA;
   }
+
 </style>
