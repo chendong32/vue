@@ -67,9 +67,12 @@ export default {
         this.movePosition();
       })
     }
+  },
+  mounted(){
+      this.movePosition();
+  }
 
   }
-}
 </script>
 
 <style>
