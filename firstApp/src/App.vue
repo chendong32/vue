@@ -1,5 +1,13 @@
 <template>
   <div id="app">
+    <div class="nav-header clearfloat">
+    <div class="header" @click = "home(index)">
+      <router-link to="/" >
+      <div class="header-background">
+        <div class="header-title">only learn</div>
+      </div>
+      </router-link>
+    </div>
     <div class="nav">
     <ul class = "nav-parent">
       <!-- 使用 router-link 组件来导航. -->
@@ -14,6 +22,7 @@
       <li class = "nav-child" @mouseover = "getPosition" @mouseout = "movePosition" @click = "choose(5,$event)" :class="{'choose':index == 5}"><router-link to="/foo">Go to Foo</router-link></li>
 
     </ul>
+    </div>
     </div>
 
     <!-- 路由出口 -->
@@ -51,6 +60,12 @@ export default {
       this.activeLeft = $('.choose').position().left;
       this.activeWidth = $('.choose').width();
       $('.active').stop().animate({'left':this.activeLeft,'width':this.activeWidth}, 300);
+    },
+    home:function (index) {
+      this.index = 0;
+      this.$nextTick(function () {
+        this.movePosition();
+      })
     }
 
   }
@@ -63,13 +78,46 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #9d9d9d;
   margin-top: 60px;
   font-size: 14px;
 }
+  #app .choose>a{
+    color: #ffffff;
+  }
+
+  .header{
+    float : left;
+  }
+  .header-background{
+    background-image:url('/static/img/button_bg.png');
+    -webkit-transition:background-position 0.5s;
+    -moz-transition:background-position 0.5s;
+    transition:background-position 0.5s;
+  }
+  .header-background:hover{
+    background-position:bottom right;
+  }
+  .header-title{
+    height:80px;
+    font-size: 30px;
+    line-height: 80px;
+  }
   .nav{
+    float : left;
+  }
+  .clearfloat:after {
+    display:block;
+    clear:both;
+    content:"";
+    visibility:hidden;
+    height:0
+  }
+  .clearfloat{
+    zoom:1;
     background: #2c3e50;
   }
+
   .nav-parent{
     list-style: none;
     height: 60px;
@@ -82,17 +130,14 @@ export default {
     line-height: 40px;
     height: 60px;
   }
-  .nav>ul>li a{
+  .nav-header a{
     padding: 10px;
     text-decoration: none;
     color: #9d9d9d;
-  }
-  .nav>ul>li a{
     display: block;
     text-shadow: 0 1px 0 rgba(255,255,255,.25);
-
   }
-  .nav>ul>li a:hover{
+  .nav-header a:hover{
     color: #ffffff;
   }
   .active{
