@@ -13,8 +13,8 @@ const Bar = { template: '<div>bar<router-link to="/bar/posts">posts</router-link
 
 export default new Router({
   routes: [
-    { path: '/', component: HelloWorld },
-    { path: '/bar',name:'bar', component: Bar ,
+    { path: '/',name:'0', component: HelloWorld },
+    { path: '/bar',name:'1', component: Bar ,
       children : [
         {
           // 当 /bar/profile 匹配成功，

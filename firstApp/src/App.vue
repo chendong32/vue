@@ -69,7 +69,10 @@ export default {
     }
   },
   mounted(){
+    this.index = this.$route.name;
+    this.$nextTick(function () {
       this.movePosition();
+    })
   }
 
   }
