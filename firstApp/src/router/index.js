@@ -13,8 +13,8 @@ const Bar = { template: '<div>bar<router-link to="/bar/posts">posts</router-link
 
 export default new Router({
   routes: [
-    { path: '/',name:'0', component: HelloWorld },
-    { path: '/bar',name:'1', component: Bar ,
+    { path: '/',name:'首页', component: HelloWorld },
+    { path: '/bar',name:'bar', component: Bar ,
       children : [
         {
           // 当 /bar/profile 匹配成功，
@@ -30,7 +30,10 @@ export default new Router({
         }
       ]
     },
-    { path: '/foo/:name',name:'foo', component: Foo ,props: true },
-    { path: '/foo',component: Foo }
+    { path: '/category/1',name:'Java', component: Bar ,props: true},
+    { path: '/category/2',name:'Linux', component: Foo ,props: true },
+    { path: '/category/3',name:'php', component: Foo ,props: true },
+    { path: '/chat',name:'随言碎语',component: Foo },
+    { path: '/git',name:'开源项目',component: Foo }
   ]
 })

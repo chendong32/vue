@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="nav-header clearfloat">
-    <div class="header" @click = "home(index)">
+    <div class="header" @click = "home(isSelect)">
       <router-link to="/" >
       <div class="header-background">
         <div class="header-title">only learn</div>
@@ -14,13 +14,9 @@
       <!-- 通过传入 `to` 属性指定链接. -->
       <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
       <li class = "nav-child active" :style="{width:activeWidth + 'px' , left:activeLeft + 'px'}" ></li>
-      <li class = "nav-child" @mouseover = "getPosition" @mouseout = "movePosition" @click = "choose(0,$event)" :class="{'choose':index == 0}"><router-link to="/" >首页</router-link></li>
-      <li class = "nav-child" @mouseover = "getPosition" @mouseout = "movePosition" @click = "choose(1,$event)" :class="{'choose':index == 1}"><router-link to="/bar">Go to Bar</router-link></li>
-      <li class = "nav-child" @mouseover = "getPosition" @mouseout = "movePosition" @click = "choose(2,$event)" :class="{'choose':index == 2}"><router-link to="/foo/attrs">Go to Foo</router-link></li>
-      <li class = "nav-child" @mouseover = "getPosition" @mouseout = "movePosition" @click = "choose(3,$event)" :class="{'choose':index == 3}"><router-link to="/foo">Go to Foo</router-link></li>
-      <li class = "nav-child" @mouseover = "getPosition" @mouseout = "movePosition" @click = "choose(4,$event)" :class="{'choose':index == 4}"><router-link to="/foo">Go to Foo</router-link></li>
-      <li class = "nav-child" @mouseover = "getPosition" @mouseout = "movePosition" @click = "choose(5,$event)" :class="{'choose':index == 5}"><router-link to="/foo">Go to Foo</router-link></li>
-
+      <li v-for="item in nav" class = "nav-child" @mouseover = "getPosition" @mouseout = "movePosition" @click = "choose(item.title,$event)" :class="{'choose':isSelect == item.title}">
+        <router-link  :to="{path:item.url}">{{item.title}}</router-link>
+      </li>
     </ul>
     </div>
     </div>
@@ -37,9 +33,17 @@ export default {
   name: 'App',
   data(){
     return {
-      index: 0,
+      isSelect : '首页',
       activeWidth : 0,
-      activeLeft : 0
+      activeLeft : 0,
+      nav: [
+        {title: '首页', url: '/'},
+        {title: 'Java', url: '/category/1'},
+        {title: 'Linux', url: '/category/2'},
+        {title: 'php', url: '/category/3'},
+        {title: '随言碎语', url: '/chat'},
+        {title: '开源项目', url: '/git'}
+      ]
     }
   },
   methods:{
@@ -50,8 +54,8 @@ export default {
       this.activeWidth = el.getBoundingClientRect().width;
       $('.active').stop().animate({'left':this.activeLeft,'width':this.activeWidth}, 300);
     },
-    choose:function (index,event) {
-      this.index = index;
+    choose:function (isSelect,event) {
+      this.isSelect = isSelect;
       var el = event.currentTarget;
       this.activeLeft = el.getBoundingClientRect().left;
       this.activeWidth = el.getBoundingClientRect().width;
@@ -61,15 +65,15 @@ export default {
       this.activeWidth = $('.choose').width();
       $('.active').stop().animate({'left':this.activeLeft,'width':this.activeWidth}, 300);
     },
-    home:function (index) {
-      this.index = 0;
+    home:function (isSelect) {
+      this.isSelect = '首页';
       this.$nextTick(function () {
         this.movePosition();
       })
     }
   },
   mounted(){
-    this.index = this.$route.name;
+    this.isSelect = this.$route.name;
     this.$nextTick(function () {
       this.movePosition();
     })
@@ -105,9 +109,9 @@ export default {
     background-position:bottom right;
   }
   .header-title{
-    height:80px;
+    height:70px;
     font-size: 30px;
-    line-height: 80px;
+    line-height: 70px;
   }
   .nav{
     float : left;
