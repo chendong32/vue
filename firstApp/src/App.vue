@@ -72,17 +72,18 @@ export default {
       $('.nav-active').stop().animate({'left':this.activeLeft,'width':this.activeWidth}, 300);
     },
     home:function (isSelect) {
-      this.isSelect = '首页';
+      if (this.$route.name == null){
+        this.isSelect = '首页';
+      }else{
+        this.isSelect = this.$route.name;
+      }
       this.$nextTick(function () {
         this.movePosition();
       })
     }
   },
-  mounted(){
-    this.isSelect = this.$route.name;
-    this.$nextTick(function () {
-      this.movePosition();
-    })
+  mounted(){/*解决页面刷新时选中状态问题*/
+    this.home();
   }
 
   }

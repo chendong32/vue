@@ -14,7 +14,7 @@ const Bar = { template: '<div>bar<router-link to="/bar/posts">posts</router-link
 export default new Router({
   routes: [
     { path: '/',name:'首页', component: HelloWorld },
-    { path: '/bar',name:'bar', component: Bar ,
+    { path: '/bar',component: Bar ,
       children : [
         {
           // 当 /bar/profile 匹配成功，
@@ -34,6 +34,10 @@ export default new Router({
     { path: '/category/2',name:'Linux', component: Foo ,props: true },
     { path: '/category/3',name:'php', component: Foo ,props: true },
     { path: '/chat',name:'随言碎语',component: Foo },
-    { path: '/git',name:'开源项目',component: Foo }
+    { path: '/git',name:'开源项目',component: Foo },
+    {
+      path: '*', //当url不存在 自动跳转到首页
+      redirect: '/'
+    }
   ]
 })
