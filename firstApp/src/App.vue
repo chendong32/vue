@@ -13,12 +13,18 @@
       <!-- 使用 router-link 组件来导航. -->
       <!-- 通过传入 `to` 属性指定链接. -->
       <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
-      <li class = "nav-child active" :style="{width:activeWidth + 'px' , left:activeLeft + 'px'}" ></li>
+      <li class = "nav-child nav-active" :style="{width:activeWidth + 'px' , left:activeLeft + 'px'}" ></li>
       <li v-for="item in nav" class = "nav-child" @mouseover = "getPosition" @mouseout = "movePosition" @click = "choose(item.title,$event)" :class="{'choose':isSelect == item.title}">
         <router-link  :to="{path:item.url}">{{item.title}}</router-link>
       </li>
     </ul>
     </div>
+      <div class="tail">
+        <ul class = "nav-parent" >
+          <li  class = "nav-child"><router-link to="/123" >登录</router-link></li>
+          <li  class = "nav-child"><router-link to="/432" >退出</router-link></li>
+        </ul>
+      </div>
     </div>
 
     <!-- 路由出口 -->
@@ -52,7 +58,7 @@ export default {
       var el = event.currentTarget;
       this.activeLeft = el.getBoundingClientRect().left;
       this.activeWidth = el.getBoundingClientRect().width;
-      $('.active').stop().animate({'left':this.activeLeft,'width':this.activeWidth}, 300);
+      $('.nav-active').stop().animate({'left':this.activeLeft,'width':this.activeWidth}, 300);
     },
     choose:function (isSelect,event) {
       this.isSelect = isSelect;
@@ -63,7 +69,7 @@ export default {
     movePosition:function () {
       this.activeLeft = $('.choose').position().left;
       this.activeWidth = $('.choose').width();
-      $('.active').stop().animate({'left':this.activeLeft,'width':this.activeWidth}, 300);
+      $('.nav-active').stop().animate({'left':this.activeLeft,'width':this.activeWidth}, 300);
     },
     home:function (isSelect) {
       this.isSelect = '首页';
@@ -116,6 +122,9 @@ export default {
   .nav{
     float : left;
   }
+  .tail{
+    float: right;
+  }
   .clearfloat:after {
     display:block;
     clear:both;
@@ -150,7 +159,7 @@ export default {
   .nav-header a:hover{
     color: #ffffff;
   }
-  .active{
+  .nav-active{
     position: absolute;
     background: #008CBA;
   }
