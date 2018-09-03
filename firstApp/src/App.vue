@@ -30,6 +30,17 @@
     <!-- 路由出口 -->
     <!-- 路由匹配到的组件将渲染在这里 -->
     <router-view></router-view>
+
+    <div class="nav-right">
+
+      <div class="b-search">
+        <form>
+          <input type="text" name="wd">
+          <input type="submit" value="全站搜索">
+        </form>
+      </div>
+
+    </div>
   </div>
 </template>
 
@@ -164,5 +175,9 @@ export default {
     position: absolute;
     background: #008CBA;
   }
-
+  .nav-right{
+    float: right;
+    width: 30%;
+    border: 1px solid red;
+  }
 </style>

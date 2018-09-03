@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="profile">
     <input v-model="name" placeholder="编辑我……">
     <p>消息是: {{ name }}</p>
 

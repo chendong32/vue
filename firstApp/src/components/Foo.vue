@@ -37,5 +37,9 @@
 </script>
 
 <style scoped>
-
+  .foo {
+    border: 1px solid red;
+    width: 65%;
+    float: left;
+  }
 </style>
