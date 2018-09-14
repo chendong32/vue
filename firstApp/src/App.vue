@@ -4,7 +4,10 @@
       <div class="header" @click="home(isSelect)">
         <router-link to="/">
           <div class="header-background">
-            <div class="header-title">Bai aI</div>
+            <div class="header-title">
+              <span class="name-color">B</span><span class="name-color1">a</span><span class="name-color2">i</span>
+              <span class="name-color3">a</span><span class="name-color">I</span>
+            </div>
           </div>
         </router-link>
       </div>
@@ -22,11 +25,11 @@
       </div>
       <div class="tail">
         <ul class="nav-parent">
-          <li class="nav-child">
-            <router-link to="/123">登录</router-link>
+          <li class="nav-child nav-tail">
+            <a @click="login">登录</a>
           </li>
-          <li class="nav-child">
-            <router-link to="/432">退出</router-link>
+          <li class="nav-child nav-tail">
+            <a @click="logout">退出</a>
           </li>
         </ul>
       </div>
@@ -159,6 +162,12 @@
         this.$nextTick(function () {
           this.movePosition();
         })
+      },
+      login: function () {
+        this.$layer.alert("click login");
+      },
+      logout:function () {
+        this.$layer.alert("click logout");
       }
     },
     mounted() {/*解决页面刷新时选中状态问题*/
@@ -378,4 +387,19 @@
     -webkit-appearance: button;
     cursor: pointer;
   }
+
+  .nav-tail a:hover{
+    background: #008CBA;
+  }
+
+  .name-color{
+    animation: color-change 5s linear 2s infinite alternate;
+    -webkit-animation: color-change 5s linear 2s infinite alternate;
+  }
+  @-webkit-keyframes color-change /* Safari 和 Chrome */
+  {
+    0%   {color: #9d9d9d;}
+    100%  {color: #E1E1E1;}
+  }
+
 </style>

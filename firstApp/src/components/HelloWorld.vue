@@ -20,7 +20,7 @@
             <p>其实PapaMan在学习docker的过程中，也查阅过很多资料，发现大多数文章要么就是写的很细，面面俱到；要么就是写的很深，跳过基础，却忽略了初学者，和希望了解docker技术的同学们的感受，使他们绕了弯路，或者望而却步；再有就是每个功能介绍的太独立，没有互相联系，也没有例子方便理解。</p>
           </div>
 
-        <a class="tag-tail">阅读全文</a>
+        <div class="tag-tail"><a class="tag-tail-a">阅读全文</a></div>
       </div>
     </div>
 
@@ -45,7 +45,7 @@
           </p>
         </div>
 
-        <a class="tag-tail">阅读全文</a>
+        <div class="tag-tail"><a class="tag-tail-a">阅读全文</a></div>
       </div>
     </div>
 
@@ -68,7 +68,7 @@
           <p>废话不多说，docker的核心功能一定是启动镜像，也就是run命令，下面我们以nginx为例，介绍如何使用docker启动镜像。</p>
         </div>
 
-        <a class="tag-tail">阅读全文</a>
+        <div class="tag-tail"><a class="tag-tail-a">阅读全文</a></div>
       </div>
     </div>
 
@@ -153,10 +153,6 @@ export default {
     border: 1px solid #008CBA;
   }
 
-  .not-allowed {
-    cursor: not-allowed;
-  }
-
   .all-tag li{
     float: left;
     margin-right: 2em;
@@ -170,7 +166,7 @@ export default {
     height: 0
   }
 
-  .tag-tail{
+  .tag-tail-a{
     background-color: #008CBA;
     display: block;
     padding: 0 10px;
@@ -180,13 +176,15 @@ export default {
     float: right;
     color: #ffffff;
   }
-  .left-panel a:hover{
+  .page a:not(.not-allowed):hover, .tag-tail a:hover{
     background-color: #dcdcdc;
     color: #008CBA;
     transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
-  }
-  .left-panel a{
     cursor: pointer;
+  }
+
+  .not-allowed {
+    cursor: not-allowed;
   }
 
 </style>
