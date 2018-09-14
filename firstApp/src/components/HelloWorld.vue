@@ -4,29 +4,22 @@
     <div class="left-panel">
       <div class="left-content clear-float">
         <h4 class="b-title">
-          测试文章
+          Docker最新简单易懂使用教程
         </h4>
         <div>
           <ul class="all-tag clear-float">
-            <li class="tag-style">test</li>
-            <li class="tag-style">2018-09-13 22:41:00</li>
-            <li class="tag-style">测试分类</li>
-            <li class="tag-style">测试</li>
+            <li><i class="icon iconfont icon-people_fill"></i><span> test</span></li>
+            <li><i class="icon iconfont icon-qiandao"></i> 2018-09-14</li>
+            <li><i class="icon iconfont icon-fenlei"></i> 测试分类</li>
+            <li><i class="icon iconfont icon-accessory"></i> 测试</li>
           </ul>
         </div>
-        <div>
-          <!-- 文章封面图片开始 -->
-          <div>
-            图片
-          </div>
-          <!-- 文章封面图片结束 -->
 
           <!-- 文章描述开始 -->
-          <div>
-            文章详情
+          <div class="entry-content">
+            <p>其实PapaMan在学习docker的过程中，也查阅过很多资料，发现大多数文章要么就是写的很细，面面俱到；要么就是写的很深，跳过基础，却忽略了初学者，和希望了解docker技术的同学们的感受，使他们绕了弯路，或者望而却步；再有就是每个功能介绍的太独立，没有互相联系，也没有例子方便理解。</p>
           </div>
 
-        </div>
         <a class="tag-tail">阅读全文</a>
       </div>
     </div>
@@ -34,29 +27,24 @@
     <div class="left-panel">
       <div class="left-content clear-float">
         <h4 class="b-title">
-          测试文章
+          对Docker的理解
         </h4>
         <div>
           <ul class="all-tag clear-float">
-            <li class="tag-style">test</li>
-            <li class="tag-style">2018-09-13 22:41:00</li>
-            <li class="tag-style">测试分类</li>
-            <li class="tag-style">测试</li>
+            <li><i class="icon iconfont icon-people_fill"></i><span> test</span></li>
+            <li><i class="icon iconfont icon-qiandao"></i> 2018-09-14</li>
+            <li><i class="icon iconfont icon-fenlei"></i> 测试分类</li>
+            <li><i class="icon iconfont icon-accessory"></i> 测试</li>
           </ul>
         </div>
-        <div>
-          <!-- 文章封面图片开始 -->
-          <div>
-            图片
-          </div>
-          <!-- 文章封面图片结束 -->
 
-          <!-- 文章描述开始 -->
-          <div>
-            文章详情
-          </div>
-
+        <!-- 文章描述开始 -->
+        <div class="entry-content">
+          <p>
+            我相信看到这篇文章的同学肯定不需要我大讲特讲docker的基本原理，大家一定在概念方面都有了一定的了解，如果还有一些些小模糊的话，看看能不能通过我对于docker在学习过程中的一些理解上的小转变来提供一些帮助。
+          </p>
         </div>
+
         <a class="tag-tail">阅读全文</a>
       </div>
     </div>
@@ -64,29 +52,22 @@
     <div class="left-panel">
       <div class="left-content clear-float">
         <h4 class="b-title">
-          测试文章
+          Docker的使用
         </h4>
         <div>
           <ul class="all-tag clear-float">
-            <li class="tag-style">test</li>
-            <li class="tag-style">2018-09-13 22:41:00</li>
-            <li class="tag-style">测试分类</li>
-            <li class="tag-style">测试</li>
+            <li><i class="icon iconfont icon-people_fill"></i><span> test</span></li>
+            <li><i class="icon iconfont icon-qiandao"></i> 2018-09-14</li>
+            <li><i class="icon iconfont icon-fenlei"></i> 测试分类</li>
+            <li><i class="icon iconfont icon-accessory"></i> 测试</li>
           </ul>
         </div>
-        <div>
-          <!-- 文章封面图片开始 -->
-          <div>
-            图片
-          </div>
-          <!-- 文章封面图片结束 -->
 
-          <!-- 文章描述开始 -->
-          <div>
-            文章详情
-          </div>
-
+        <!-- 文章描述开始 -->
+        <div class="entry-content">
+          <p>废话不多说，docker的核心功能一定是启动镜像，也就是run命令，下面我们以nginx为例，介绍如何使用docker启动镜像。</p>
         </div>
+
         <a class="tag-tail">阅读全文</a>
       </div>
     </div>
@@ -97,7 +78,7 @@
         <a class="page-num not-allowed">上一页</a>
         <span class="page-current">1</span>
         <a class="page-num not-allowed">下一页</a>
-        <a class="page-num">末页</a> <span>共 3 条记录</span>
+        <a class="page-num">末页</a>
       </div>
     </div>
 
@@ -176,14 +157,9 @@ export default {
     cursor: not-allowed;
   }
 
-  .all-tag{
-    padding: 0px;
-    list-style: none;
-  }
-
-  .tag-style{
+  .all-tag li{
     float: left;
-    margin-right: 20px;
+    margin-right: 2em;
   }
 
   .clear-float:after {
@@ -204,6 +180,13 @@ export default {
     float: right;
     color: #ffffff;
   }
-
+  .left-panel a:hover{
+    background-color: #dcdcdc;
+    color: #008CBA;
+    transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
+  }
+  .left-panel a{
+    cursor: pointer;
+  }
 
 </style>

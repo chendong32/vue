@@ -32,7 +32,7 @@
       </div>
     </div>
 
-    <div class="app-container clear-float">
+    <div class="app-container down-container clear-float">
     <!-- 路由出口 -->
     <!-- 路由匹配到的组件将渲染在这里 -->
     <router-view></router-view>
@@ -43,8 +43,11 @@
         <div class="b-tags">
           <h4 class="b-title">热门标签</h4>
           <ul class="all-tag">
-            <li class="one-tag"><a class="tag-style">测试数据</a></li>
-            <li class="one-tag"><a class="tag-style">测试数据</a></li>
+            <li><a class="tag-style">docker</a></li>
+            <li><a class="tag-style">linux</a></li>
+            <li><a class="tag-style">nginx</a></li>
+            <li><a class="tag-style">镜像</a></li>
+            <li><a class="tag-style">服务器</a></li>
           </ul>
         </div>
 
@@ -52,30 +55,37 @@
 
       <div class="right-panel">
 
-        <div class="b-link">
+        <div class="b-tags">
           <h4 class="b-title">置顶推荐</h4>
-          <div>
-          </div>
+          <ul class="all-tag">
+            <li class="recommend-style"><i class="icon iconfont icon-diantileimu"></i><a> Docker最新简单易懂使用教程</a></li>
+            <li class="recommend-style"><i class="icon iconfont icon-diantileimu"></i><a> 对Docker的理解</a></li>
+            <li class="recommend-style"><i class="icon iconfont icon-diantileimu"></i><a> Docker的使用</a></li>
+          </ul>
         </div>
 
       </div>
 
       <div class="right-panel">
 
-        <div class="b-link">
+        <div class="b-tags">
           <h4 class="b-title">最新评论</h4>
-          <div>
-          </div>
+          <ul class="all-tag">
+            <li class="comment-style"><span>PapaMan</span> 发表在《<a>Docker最新简单易懂使用教程</a>》</li>
+            <li class="comment-style"><span>PapaMan</span> 发表在《<a>对Docker的理解</a>》</li>
+            <li  class="comment-style comment-end"><span>PapaMan</span> 发表在《<a>Docker的使用</a>》</li>
+          </ul>
         </div>
 
       </div>
 
       <div class="right-panel">
 
-        <div class="b-link">
+        <div class="b-tags">
           <h4 class="b-title">友情链接</h4>
-          <div>
-          </div>
+          <ul class="all-tag">
+            <li class="recommend-style"><i class="icon iconfont icon-lianjie"></i><a> PAPAMAN的个人博客</a></li>
+          </ul>
         </div>
 
       </div>
@@ -85,7 +95,7 @@
         <div class="b-search">
           <form class="form-inline" role="form">
             <input class="b-search-text" type="text" name="search_word">
-            <input class="b-search-submit" type="submit" value="全站搜索">
+            <input class="b-search-submit" type="submit" value="搜索">
           </form>
         </div>
 
@@ -95,8 +105,8 @@
     </div>
 
     <div>
-      <p>开源博客程序搭建  © 2014-2017 BaiAi.com 版权所有 ICP证：豫ICP备14009546号-3</p>
-      <p>联系邮箱：baiai@baiai.com</p>
+      <div>开源博客程序搭建  © 2014-2017 BaiAi.com 版权所有 ICP证：豫ICP备14009546号-3</div>
+      <div>联系邮箱：baiai@baiai.com</div>
     </div>
   </div>
 </template>
@@ -172,6 +182,13 @@
     color: #ffffff;
   }
 
+
+  #app p{
+    text-indent:2em;
+    text-align:justify!important;
+    color:#333;
+  }
+
   .header {
     float: left;
   }
@@ -217,7 +234,7 @@
   .nav-parent {
     list-style: none;
     height: 50px;
-
+    margin: 0.3em 0 1em;
   }
 
   .nav-child {
@@ -229,7 +246,9 @@
   }
 
   .nav-header {
-    margin-bottom: 20px;
+    right: 0;
+    left: 0;
+    position: fixed;
   }
 
   .nav-header a {
@@ -263,7 +282,7 @@
   .b-search-text {
     margin-right: 0;
     padding: 0 5px;
-    width: 73%;
+    width: 70%;
     height: 33px;
     line-height: 35px;
     border: 1px solid #ccc;
@@ -294,15 +313,14 @@
   }
 
   .tag-style {
-    background-color: #F3A557;
+    border: 1px solid #ddd;
+    -webkit-box-shadow: none;
+    box-shadow: none;
     display: block;
-    padding: 0 10px;
-    height: 20px;
-    line-height: 20px;
-    border-radius: 10px;
-    float: left;
-    margin-right: 5px;
-    color: #ffffff;
+    padding: 4px 10px 5px;
+    -webkit-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
+    word-wrap: break-word;
   }
 
   .all-tag {
@@ -310,7 +328,20 @@
     list-style: none;
   }
 
-  .b-tags, .b-link, .b-search {
+  .all-tag li{
+    padding: 0;
+    margin: 4px 4px 0 0;
+    line-height: 25px;
+    float: left;
+  }
+
+  .all-tag li a:hover{
+    cursor: pointer;
+    color: #000;
+    box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 1px 1px #E2E2E2;
+  }
+
+  .b-tags, .b-search {
     padding: 20px;
     overflow: hidden;
     box-shadow: 0 1px 2px 0 #E2E2E2;
@@ -324,7 +355,27 @@
   }
   .app-container{
     padding: 0 200px;
-    margin-right: auto;
-    margin-left: auto;
+    margin: auto;
+  }
+  .down-container{
+    padding-top: 6em;
+  }
+
+  .comment-style{
+    text-align: left;
+    width: 100%;
+    border-bottom: 1px solid #dcdcdc;
+  }
+  .comment-end{
+    border: none;
+  }
+  .recommend-style{
+    text-align: left;
+    width: 100%;
+    color: #008CBA;
+  }
+  input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer;
   }
 </style>

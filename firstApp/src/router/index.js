@@ -5,6 +5,9 @@ import Foo from '@/components/Foo'
 import UserProfile from '@/components/UserProfile'
 import UserPosts from '@/components/UserPosts'
 import VueResource from 'vue-resource'
+import layer from 'vue-layer'
+
+Vue.prototype.$layer = layer(Vue);
 
 Vue.use(Router)
 Vue.use(VueResource)
