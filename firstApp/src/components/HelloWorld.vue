@@ -1,14 +1,106 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg|capitalize}}|{{ msg.split('').reverse().join('')|capitalize}}</h1>
-    <label for="r1">修改颜色</label><input type="checkbox" v-model="class1" id="r1">
-    <br><br>
-    <div v-bind:class="{'class1': class1}">
-      {{ reversedMessage}}
+  <div class="foo">
+
+    <div class="left-panel">
+      <div class="left-content clear-float">
+        <h4 class="b-title">
+          测试文章
+        </h4>
+        <div>
+          <ul class="all-tag clear-float">
+            <li class="tag-style">test</li>
+            <li class="tag-style">2018-09-13 22:41:00</li>
+            <li class="tag-style">测试分类</li>
+            <li class="tag-style">测试</li>
+          </ul>
+        </div>
+        <div>
+          <!-- 文章封面图片开始 -->
+          <div>
+            图片
+          </div>
+          <!-- 文章封面图片结束 -->
+
+          <!-- 文章描述开始 -->
+          <div>
+            文章详情
+          </div>
+
+        </div>
+        <a class="tag-tail">阅读全文</a>
+      </div>
     </div>
-    <div v-html="message"></div>
-    <input v-model="msg" placeholder="编辑我……">
-    <p>消息是: {{ msg }}</p>
+
+    <div class="left-panel">
+      <div class="left-content clear-float">
+        <h4 class="b-title">
+          测试文章
+        </h4>
+        <div>
+          <ul class="all-tag clear-float">
+            <li class="tag-style">test</li>
+            <li class="tag-style">2018-09-13 22:41:00</li>
+            <li class="tag-style">测试分类</li>
+            <li class="tag-style">测试</li>
+          </ul>
+        </div>
+        <div>
+          <!-- 文章封面图片开始 -->
+          <div>
+            图片
+          </div>
+          <!-- 文章封面图片结束 -->
+
+          <!-- 文章描述开始 -->
+          <div>
+            文章详情
+          </div>
+
+        </div>
+        <a class="tag-tail">阅读全文</a>
+      </div>
+    </div>
+
+    <div class="left-panel">
+      <div class="left-content clear-float">
+        <h4 class="b-title">
+          测试文章
+        </h4>
+        <div>
+          <ul class="all-tag clear-float">
+            <li class="tag-style">test</li>
+            <li class="tag-style">2018-09-13 22:41:00</li>
+            <li class="tag-style">测试分类</li>
+            <li class="tag-style">测试</li>
+          </ul>
+        </div>
+        <div>
+          <!-- 文章封面图片开始 -->
+          <div>
+            图片
+          </div>
+          <!-- 文章封面图片结束 -->
+
+          <!-- 文章描述开始 -->
+          <div>
+            文章详情
+          </div>
+
+        </div>
+        <a class="tag-tail">阅读全文</a>
+      </div>
+    </div>
+
+    <div class="left-panel">
+      <div class="page">
+        <a class="page-num">首页</a>
+        <a class="page-num not-allowed">上一页</a>
+        <span class="page-current">1</span>
+        <a class="page-num not-allowed">下一页</a>
+        <a class="page-num">末页</a> <span>共 3 条记录</span>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -18,8 +110,7 @@ export default {
   data () {
     return {
       msg: 'assest',
-      message: '<em>show</em>',
-      class1: false
+      message: '<em>show</em>'
     }
   },
   filters: {
@@ -43,28 +134,76 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-
-.class1{
-  background: #444;
-  color: #eee;
-}
-  .hello{
-    border: 1px solid red;
+  .foo {
     width: 65%;
     float: left;
   }
+
+  .page {
+    padding: 30px 15px;
+    background: #FFF;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .left-content{
+    padding: 20px;
+  }
+
+  .left-panel{
+    overflow: hidden;
+    background: #FFF;
+    box-shadow: 0 1px 2px 0 #E2E2E2;
+    margin-bottom: 20px;
+  }
+
+  .page-num, .page-current{
+    padding: 8px 16px;
+    margin: 0px 5px;
+    display: inline-block;
+    color: #008CBA;
+    border: 1px solid #F2F2F2;
+    border-radius: 5px;
+  }
+  .page-current{
+    background-color: #008CBA;
+    color: #FFF;
+    border-radius: 5px;
+    border: 1px solid #008CBA;
+  }
+
+  .not-allowed {
+    cursor: not-allowed;
+  }
+
+  .all-tag{
+    padding: 0px;
+    list-style: none;
+  }
+
+  .tag-style{
+    float: left;
+    margin-right: 20px;
+  }
+
+  .clear-float:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0
+  }
+
+  .tag-tail{
+    background-color: #008CBA;
+    display: block;
+    padding: 0 10px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 10px;
+    float: right;
+    color: #ffffff;
+  }
+
+
 </style>
