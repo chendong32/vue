@@ -203,7 +203,7 @@
   }
 
   .header-background {
-    background-image: url('/static/img/button_bg.png');
+    background: #466380 url('/static/img/button_bg.png');
     -webkit-transition: background-position 0.5s;
     -moz-transition: background-position 0.5s;
     transition: background-position 0.5s;
@@ -287,7 +287,6 @@
     margin-bottom: 20px;
   }
 
-  /* 搜索开始 */
   .b-search-text {
     margin-right: 0;
     padding: 0 5px;
@@ -314,8 +313,6 @@
   .b-search-submit:hover {
     background-position: bottom right;
   }
-
-  /* 搜索结束 */
 
   .col-lg-4 {
     width: 33.33333333%;
