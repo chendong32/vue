@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home media-style-home">
 
     <div class="left-panel">
       <div class="left-content clear-float">
@@ -178,4 +178,15 @@ export default {
     cursor: not-allowed;
   }
 
+  @media (max-width: 1300px) and (min-width: 0px){
+    .media-style-none {
+      display: none!important;
+    }
+    .media-style-pad {
+      padding: 0 50px;
+    }
+    .media-style-category,.media-style-chat,.media-style-git,.media-style-home{
+      width: 100%;
+    }
+  }
 </style>

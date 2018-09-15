@@ -1,5 +1,5 @@
 <template>
-  <div class="category">
+  <div class="category media-style-category">
 
     <div class="left-panel">
       <div class="left-content clear-float">
@@ -14,12 +14,9 @@
             <li><i class="icon iconfont icon-accessory"></i> 测试</li>
           </ul>
         </div>
-
-        <!-- 文章描述开始 -->
         <div>
           <p>其实PapaMan在学习docker的过程中，也查阅过很多资料，发现大多数文章要么就是写的很细，面面俱到；要么就是写的很深，跳过基础，却忽略了初学者，和希望了解docker技术的同学们的感受，使他们绕了弯路，或者望而却步；再有就是每个功能介绍的太独立，没有互相联系，也没有例子方便理解。</p>
         </div>
-
         <div class="tag-tail"><a class="tag-tail-a">阅读全文</a></div>
       </div>
     </div>
@@ -37,14 +34,11 @@
             <li><i class="icon iconfont icon-accessory"></i> 测试</li>
           </ul>
         </div>
-
-        <!-- 文章描述开始 -->
         <div>
           <p>
             我相信看到这篇文章的同学肯定不需要我大讲特讲docker的基本原理，大家一定在概念方面都有了一定的了解，如果还有一些些小模糊的话，看看能不能通过我对于docker在学习过程中的一些理解上的小转变来提供一些帮助。
           </p>
         </div>
-
         <div class="tag-tail"><a class="tag-tail-a">阅读全文</a></div>
       </div>
     </div>
@@ -154,5 +148,17 @@
 
   .not-allowed {
     cursor: not-allowed;
+  }
+
+  @media (max-width: 1300px) and (min-width: 0px){
+    .media-style-none {
+      display: none!important;
+    }
+    .media-style-pad {
+      padding: 0 50px;
+    }
+    .media-style-category,.media-style-chat,.media-style-git,.media-style-home{
+      width: 100%;
+    }
   }
 </style>

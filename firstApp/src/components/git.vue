@@ -1,5 +1,5 @@
 <template>
-  <div class="git">
+  <div class="git media-style-git">
     <!--<div class="loading" v-if="loading">
       Loading...
     </div>-->
@@ -32,7 +32,7 @@
           </p>
         </div>
         <div class="tag-tail clear-float">
-          <div class="git-left-style">Latest commit <strong>2018-09-14</strong></div>
+          <div class="tag-left-style">Latest commit <strong>2018-09-14</strong></div>
           <a class="tag-tail-a">Download as zip</a>
         </div>
       </div>
@@ -58,7 +58,7 @@
           </p>
         </div>
         <div class="tag-tail clear-float">
-          <div class="git-left-style">Latest commit <strong>2018-09-14</strong></div>
+          <div class="tag-left-style">Latest commit <strong>2018-09-14</strong></div>
           <a class="tag-tail-a">Download as zip</a>
         </div>
       </div>
@@ -84,9 +84,19 @@
           </p>
         </div>
         <div class="tag-tail clear-float">
-          <div class="git-left-style">Latest commit <strong>2018-09-14</strong></div>
+          <div class="tag-left-style">Latest commit <strong>2018-09-14</strong></div>
           <a class="tag-tail-a">Download as zip</a>
         </div>
+      </div>
+    </div>
+
+    <div class="left-panel">
+      <div class="page">
+        <a class="page-num">首页</a>
+        <a class="page-num not-allowed">上一页</a>
+        <span class="page-current">1</span>
+        <a class="page-num not-allowed">下一页</a>
+        <a class="page-num">末页</a>
       </div>
     </div>
 
@@ -169,7 +179,7 @@
     color: #ffffff;
   }
 
-  .git-left-style {
+  .tag-left-style {
     float: left;
     height: 20px;
     line-height: 20px;
@@ -180,5 +190,50 @@
     color: #008CBA;
     transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
     cursor: pointer;
+  }
+
+  .page {
+    padding: 30px 15px;
+    background: #FFF;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .page-num, .page-current{
+    padding: 8px 16px;
+    margin: 0px 5px;
+    display: inline-block;
+    color: #008CBA;
+    border: 1px solid #F2F2F2;
+    border-radius: 5px;
+  }
+  .page-current{
+    background-color: #008CBA;
+    color: #FFF;
+    border-radius: 5px;
+    border: 1px solid #008CBA;
+  }
+
+  .page a:not(.not-allowed):hover, .tag-tail a:hover{
+    background-color: #dcdcdc;
+    color: #008CBA;
+    transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  .not-allowed {
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 1300px) and (min-width: 0px){
+    .media-style-none {
+      display: none!important;
+    }
+    .media-style-pad {
+      padding: 0 50px;
+    }
+    .media-style-category,.media-style-chat,.media-style-git,.media-style-home{
+      width: 100%;
+    }
   }
 </style>

@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <div class="nav-header app-container header-color clear-float">
+
+    <div class="nav-header app-container header-color media-style-pad clear-float">
       <div class="header" @click="home(isSelect)">
         <router-link to="/">
           <div class="header-background">
@@ -13,9 +14,6 @@
       </div>
       <div class="nav">
         <ul class="nav-parent">
-          <!-- 使用 router-link 组件来导航. -->
-          <!-- 通过传入 `to` 属性指定链接. -->
-          <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
           <li class="nav-child nav-active" :style="{width:activeWidth + 'px' , left:activeLeft + 'px'}"></li>
           <li v-for="item in nav" class="nav-child" @mouseover="getPosition" @mouseout="movePosition"
               @click="choose(item.title,$event)" :class="{'choose':isSelect == item.title}">
@@ -35,12 +33,12 @@
       </div>
     </div>
 
-    <div class="app-container down-container clear-float">
-    <!-- 路由出口 -->
-    <!-- 路由匹配到的组件将渲染在这里 -->
+    <div class="app-container down-container media-style-pad clear-float">
+
     <router-view></router-view>
 
-    <div class="nav-right col-lg-4 ">
+    <div class="nav-right col-lg-4 media-style-none">
+
       <div class="right-panel">
 
         <div class="b-tags">
@@ -70,7 +68,6 @@
       </div>
 
       <div class="right-panel">
-
         <div class="b-tags">
           <h4 class="b-title">最新评论</h4>
           <ul class="all-tag">
@@ -79,7 +76,6 @@
             <li  class="comment-style comment-end"><span>PapaMan</span> 发表在《<a>Docker的使用</a>》</li>
           </ul>
         </div>
-
       </div>
 
       <div class="right-panel">
@@ -103,6 +99,7 @@
         </div>
 
       </div>
+
     </div>
 
     </div>
@@ -138,9 +135,12 @@
 
       getPosition: function (event) {
         var el = event.currentTarget;
+        var par = event.target.parentElement;
+        //console.log(par.offsetLeft+" "+par.offsetHeight+" "+par.offsetParent+" "+par.offsetTop+" "+par.offsetWidth);
         this.activeLeft = el.getBoundingClientRect().left;
+        //this.activeLeft = par.offsetLeft;
         this.activeWidth = el.getBoundingClientRect().width;
-        $('.nav-active').stop().animate({'left': this.activeLeft, 'width': this.activeWidth}, 300);
+        $('.nav-active').stop().animate({'left': par.offsetLeft, 'width': this.activeWidth}, 300);
       },
       choose: function (isSelect, event) {
         this.isSelect = isSelect;
@@ -244,6 +244,7 @@
     list-style: none;
     height: 50px;
     margin: 0.3em 0 1em;
+    position: relative;
   }
 
   .nav-child {
@@ -397,6 +398,21 @@
   {
     0%   {color: #9d9d9d;}
     100%  {color: #E1E1E1;}
+  }
+
+  @media (max-width: 1300px) and (min-width: 0px){
+    .media-style-none {
+      display: none!important;
+    }
+    .media-style-pad {
+      padding: 0 50px;
+    }
+    .down-container {
+      padding: 6em;
+    }
+    .media-style-category,.media-style-chat,.media-style-git,.media-style-home{
+      width: 100%;
+    }
   }
 
 </style>
