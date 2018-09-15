@@ -125,9 +125,8 @@
           {title: '首页', url: '/'},
           {title: 'Java', url: '/category/1'},
           {title: 'Linux', url: '/category/2'},
-          {title: 'php', url: '/category/3'},
-          {title: '随言碎语', url: '/chat'},
-          {title: '开源项目', url: '/git'}
+          {title: 'Git', url: '/git'},
+          {title: '随言碎语', url: '/chat'}
         ]
       }
     },
@@ -245,6 +244,7 @@
     height: 50px;
     margin: 0.3em 0 1em;
     position: relative;
+    padding: 0;
   }
 
   .nav-child {
@@ -401,9 +401,6 @@
   }
 
   @media (max-width: 1300px) and (min-width: 0px){
-    .media-style-nav-active {
-      display: block;
-    }
     .media-style-none {
       display: none!important;
     }
@@ -419,35 +416,29 @@
   }
 
   @media (max-width: 820px) and (min-width: 0px){
-    .media-style-nav-active {
-      width: 0;
-      background: rgba(0,0,0,0);
-    }
     .media-style-nav-parent{
-      width: 5em;
       position: absolute;
-      top: 5em;
     }
-    .media-style-nav-child {
-      width: 6em;
-      height: auto;
-      background:rgba(220,220,220,0.4);
+    .media-style-nav-parent li:nth-child(5), .media-style-nav-parent li:last-child{
+      display: none;
     }
-    .media-style-nav-child a{
-      padding: 0;
+    .media-style-nav-active{
+      background: rgba(0,0,0,0);
     }
   }
 
   @media (max-width: 600px) and (min-width: 0px){
-    .media-style-nav-active {
-      width: 0;
-      background: rgba(0,0,0,0);
-    }
     .media-style-pad {
       padding: 0 1em;
     }
     .down-container {
       padding: 6em 1em 0;
+    }
+    .media-style-nav-parent li:nth-child(5), .media-style-nav-parent li:last-child{
+      display: none;
+    }
+    .media-style-nav-active{
+      background: rgba(0,0,0,0);
     }
   }
 

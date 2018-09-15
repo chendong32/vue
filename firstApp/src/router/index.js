@@ -25,9 +25,8 @@ export default new Router({
     { path: '/',name:'首页', component: home },
     { path: '/category/1',name:'Java', component: category ,props: true},
     { path: '/category/2',name:'Linux', component: category ,props: true },
-    { path: '/category/3',name:'php', component: category ,props: true },
+    { path: '/git',name:'Git',component: git },
     { path: '/chat',name:'随言碎语',component: chat },
-    { path: '/git',name:'开源项目',component: git },
     {
       path: '*', //当url不存在 自动跳转到首页
       redirect: '/'

@@ -11,7 +11,7 @@
             <li><i class="icon iconfont icon-people_fill"></i><span> test</span></li>
             <li><i class="icon iconfont icon-qiandao"></i> 09-14</li>
             <li><i class="icon iconfont icon-classify"></i> JAVA</li>
-            <li><i class="icon iconfont icon-accessory"></i> 三中文</li>
+            <li><i class="icon iconfont icon-accessory"></i> 服务器</li>
           </ul>
         </div>
 
@@ -32,9 +32,9 @@
         <div>
           <ul class="all-tag clear-float">
             <li><i class="icon iconfont icon-people_fill"></i><span> test</span></li>
-            <li><i class="icon iconfont icon-qiandao"></i> 2018-09-14</li>
-            <li><i class="icon iconfont icon-classify"></i> 测试分类</li>
-            <li><i class="icon iconfont icon-accessory"></i> 测试</li>
+            <li><i class="icon iconfont icon-qiandao"></i> 09-14</li>
+            <li><i class="icon iconfont icon-classify"></i> JAVA</li>
+            <li><i class="icon iconfont icon-accessory"></i> 服务器</li>
           </ul>
         </div>
 
@@ -57,9 +57,9 @@
         <div>
           <ul class="all-tag clear-float">
             <li><i class="icon iconfont icon-people_fill"></i><span> test</span></li>
-            <li><i class="icon iconfont icon-qiandao"></i> 2018-09-14</li>
-            <li><i class="icon iconfont icon-classify"></i> 测试分类</li>
-            <li><i class="icon iconfont icon-accessory"></i> 测试</li>
+            <li><i class="icon iconfont icon-qiandao"></i> 09-14</li>
+            <li><i class="icon iconfont icon-classify"></i> JAVA</li>
+            <li><i class="icon iconfont icon-accessory"></i> 服务器</li>
           </ul>
         </div>
 
@@ -179,9 +179,6 @@ export default {
   }
 
   @media (max-width: 1300px) and (min-width: 0px){
-    .media-style-nav-active {
-      display: block;
-    }
     .media-style-none {
       display: none!important;
     }
@@ -197,35 +194,23 @@ export default {
   }
 
   @media (max-width: 820px) and (min-width: 0px){
-    .media-style-nav-active {
-      width: 0;
-      background: rgba(0,0,0,0);
-    }
     .media-style-nav-parent{
-      width: 5em;
       position: absolute;
-      top: 5em;
     }
-    .media-style-nav-child {
-      width: 6em;
-      height: auto;
-      background:rgba(220,220,220,0.4);
-    }
-    .media-style-nav-child a{
-      padding: 0;
+    .media-style-nav-parent li:nth-child(5), .media-style-nav-parent li:last-child{
+      display: none;
     }
   }
 
   @media (max-width: 600px) and (min-width: 0px){
-    .media-style-nav-active {
-      width: 0;
-      background: rgba(0,0,0,0);
-    }
     .media-style-pad {
       padding: 0 1em;
     }
     .down-container {
       padding: 6em 1em 0;
+    }
+    .media-style-nav-parent li:nth-child(5), .media-style-nav-parent li:last-child{
+      display: none;
     }
   }
 </style>
