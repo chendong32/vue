@@ -9,9 +9,9 @@
         <div>
           <ul class="all-tag clear-float">
             <li><i class="icon iconfont icon-people_fill"></i><span> test</span></li>
-            <li><i class="icon iconfont icon-qiandao"></i> 2018-09-14</li>
-            <li><i class="icon iconfont icon-classify"></i> 测试分类</li>
-            <li><i class="icon iconfont icon-accessory"></i> 测试</li>
+            <li><i class="icon iconfont icon-qiandao"></i> 09-14</li>
+            <li><i class="icon iconfont icon-classify"></i> JAVA</li>
+            <li><i class="icon iconfont icon-accessory"></i> 三中文</li>
           </ul>
         </div>
 
@@ -139,7 +139,7 @@ export default {
   }
 
   .page-num, .page-current{
-    padding: 8px 16px;
+    padding: 8px 11px;
     margin: 0px 5px;
     display: inline-block;
     color: #008CBA;
@@ -179,14 +179,53 @@ export default {
   }
 
   @media (max-width: 1300px) and (min-width: 0px){
+    .media-style-nav-active {
+      display: block;
+    }
     .media-style-none {
       display: none!important;
     }
     .media-style-pad {
-      padding: 0 50px;
+      padding: 0 6em;
+    }
+    .down-container {
+      padding: 6em 6em 0;
     }
     .media-style-category,.media-style-chat,.media-style-git,.media-style-home{
       width: 100%;
+    }
+  }
+
+  @media (max-width: 820px) and (min-width: 0px){
+    .media-style-nav-active {
+      width: 0;
+      background: rgba(0,0,0,0);
+    }
+    .media-style-nav-parent{
+      width: 5em;
+      position: absolute;
+      top: 5em;
+    }
+    .media-style-nav-child {
+      width: 6em;
+      height: auto;
+      background:rgba(220,220,220,0.4);
+    }
+    .media-style-nav-child a{
+      padding: 0;
+    }
+  }
+
+  @media (max-width: 600px) and (min-width: 0px){
+    .media-style-nav-active {
+      width: 0;
+      background: rgba(0,0,0,0);
+    }
+    .media-style-pad {
+      padding: 0 1em;
+    }
+    .down-container {
+      padding: 6em 1em 0;
     }
   }
 </style>

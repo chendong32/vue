@@ -13,9 +13,9 @@
         </router-link>
       </div>
       <div class="nav">
-        <ul class="nav-parent">
-          <li class="nav-child nav-active" :style="{width:activeWidth + 'px' , left:activeLeft + 'px'}"></li>
-          <li v-for="item in nav" class="nav-child" @mouseover="getPosition" @mouseout="movePosition"
+        <ul class="nav-parent media-style-nav-parent">
+          <li class="nav-child nav-active media-style-nav-active" :style="{width:activeWidth + 'px' , left:activeLeft + 'px'}"></li>
+          <li v-for="item in nav" class="nav-child media-style-nav-child" @mouseover="getPosition" @mouseout="movePosition"
               @click="choose(item.title,$event)" :class="{'choose':isSelect == item.title}">
             <router-link :to="{path:item.url}">{{item.title}}</router-link>
           </li>
@@ -401,17 +401,53 @@
   }
 
   @media (max-width: 1300px) and (min-width: 0px){
+    .media-style-nav-active {
+      display: block;
+    }
     .media-style-none {
       display: none!important;
     }
     .media-style-pad {
-      padding: 0 50px;
+      padding: 0 6em;
     }
     .down-container {
-      padding: 6em;
+      padding: 6em 6em 0;
     }
     .media-style-category,.media-style-chat,.media-style-git,.media-style-home{
       width: 100%;
+    }
+  }
+
+  @media (max-width: 820px) and (min-width: 0px){
+    .media-style-nav-active {
+      width: 0;
+      background: rgba(0,0,0,0);
+    }
+    .media-style-nav-parent{
+      width: 5em;
+      position: absolute;
+      top: 5em;
+    }
+    .media-style-nav-child {
+      width: 6em;
+      height: auto;
+      background:rgba(220,220,220,0.4);
+    }
+    .media-style-nav-child a{
+      padding: 0;
+    }
+  }
+
+  @media (max-width: 600px) and (min-width: 0px){
+    .media-style-nav-active {
+      width: 0;
+      background: rgba(0,0,0,0);
+    }
+    .media-style-pad {
+      padding: 0 1em;
+    }
+    .down-container {
+      padding: 6em 1em 0;
     }
   }
 
