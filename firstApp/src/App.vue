@@ -2,7 +2,7 @@
   <div id="app">
 
     <div class="nav-header app-container header-color media-style-pad clear-float">
-      <div class="header" @click="home(isSelect)">
+      <div class="header media-style-header" @click="home(isSelect)">
         <router-link to="/">
           <div class="header-background">
             <div class="header-title">
@@ -105,7 +105,7 @@
     </div>
 
     <div>
-      <div>© 2014-2017 baiai.com 版权所有 邮箱：baiai@baiai.com</div>
+      <div>© 2014-2017 baiai.com 版权所有</div>
     </div>
   </div>
 </template>
@@ -165,8 +165,8 @@
             parent: this,//当前的vue对象
             data:{}//props
           },
-          area:['400px','300px'],
-          title:""
+          area:['308px','300px'],
+          title:"Sign in to BaiaI"
         });
       },
       logout:function () {
@@ -423,7 +423,6 @@
       width: 100%;
     }
   }
-
   @media (max-width: 820px) and (min-width: 0px){
     .media-style-nav-parent{
       position: absolute;
@@ -435,7 +434,6 @@
       background: rgba(0,0,0,0);
     }
   }
-
   @media (max-width: 600px) and (min-width: 0px){
     .media-style-pad {
       padding: 0 1em;
@@ -447,5 +445,9 @@
       display: none;
     }
   }
-
+  @media (max-width: 400px) and (min-width: 0px){
+    .media-style-header{
+      display: none!important;
+    }
+  }
 </style>

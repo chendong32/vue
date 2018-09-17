@@ -7,7 +7,7 @@
           Docker最新简单易懂使用教程
         </h4>
         <div>
-          <ul class="all-tag clear-float">
+          <ul class="all-tag clear-float media-style-tag-parent">
             <li><i class="icon iconfont icon-people_fill"></i><span> test</span></li>
             <li><i class="icon iconfont icon-qiandao"></i> 09-14</li>
             <li><i class="icon iconfont icon-fenlei"></i> JAVA</li>
@@ -28,7 +28,7 @@
           对Docker的理解
         </h4>
         <div>
-          <ul class="all-tag clear-float">
+          <ul class="all-tag clear-float media-style-tag-parent">
             <li><i class="icon iconfont icon-people_fill"></i><span> test</span></li>
             <li><i class="icon iconfont icon-qiandao"></i> 09-14</li>
             <li><i class="icon iconfont icon-fenlei"></i> JAVA</li>
@@ -46,11 +46,11 @@
 
     <div class="left-panel">
       <div class="page">
-        <a class="page-num">首页</a>
+        <a class="page-num media-style-page-start">首页</a>
         <a class="page-num not-allowed">上一页</a>
         <span class="page-current">1</span>
         <a class="page-num not-allowed">下一页</a>
-        <a class="page-num">末页</a>
+        <a class="page-num media-style-page-end">末页</a>
       </div>
     </div>
 
@@ -166,25 +166,20 @@
     .media-style-none {
       display: none !important;
     }
-
     .media-style-pad {
       padding: 0 6em;
     }
-
     .down-container {
       padding: 6em 6em 0;
     }
-
     .media-style-category, .media-style-chat, .media-style-git, .media-style-home {
       width: 100%;
     }
   }
-
   @media (max-width: 820px) and (min-width: 0px) {
     .media-style-nav-parent {
       position: absolute;
     }
-
     .media-style-nav-parent li:nth-child(5), .media-style-nav-parent li:last-child {
       display: none;
     }
@@ -194,12 +189,15 @@
     .media-style-pad {
       padding: 0 1em;
     }
-
     .down-container {
       padding: 6em 1em 0;
     }
-
     .media-style-nav-parent li:nth-child(5), .media-style-nav-parent li:last-child {
+      display: none;
+    }
+  }
+  @media (max-width: 400px) and (min-width: 0px){
+    .media-style-tag-parent li:nth-child(4), .media-style-page-start, .media-style-page-end {
       display: none;
     }
   }
