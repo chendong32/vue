@@ -170,7 +170,7 @@
         });
       },
       logout:function () {
-        this.$layer.alert("click logout");
+        this.$router.replace("/");
       }
     },
     mounted() {/*解决页面刷新时选中状态问题*/
