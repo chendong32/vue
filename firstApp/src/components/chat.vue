@@ -11,7 +11,7 @@
           <div class="time-one">
             <div class="clear-float">
               <hr class="time-length-short"/>
-              <div class="time-title-short"><span>PapaMan</span> 发表在《<a>Docker最新简单易懂使用教程</a>》</div>
+              <div class="time-title-short"><strong>PapaMan</strong> <a>Docker最新简单易懂使用教程</a></div>
             </div>
             <div class="time-content">
               <p>
@@ -21,7 +21,7 @@
             </div>
             <div class="clear-float">
               <hr class="time-length-short"/>
-              <div class="time-title-short"><span>PapaMan</span> 发表在《<a>对Docker的理解</a>》</div>
+              <div class="time-title-short"><strong>PapaMan</strong> <a>对Docker的理解</a></div>
             </div>
             <div class="time-content">
               <p>
@@ -36,7 +36,7 @@
             </div>
             <div class="clear-float">
               <hr class="time-length-short"/>
-              <div class="time-title-short"><span>PapaMan</span> 发表在《<a>Docker的使用</a>》</div>
+              <div class="time-title-short"><strong>PapaMan</strong> <a>Docker的使用</a></div>
             </div>
             <div class="time-content">
               <p>

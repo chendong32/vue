@@ -9,9 +9,9 @@
         <div>
           <ul class="all-tag clear-float">
             <li><i class="icon iconfont icon-people_fill"></i><span> test</span></li>
-            <li><i class="icon iconfont icon-qiandao"></i> 2018-09-14</li>
-            <li><i class="icon iconfont icon-fenlei"></i> 测试分类</li>
-            <li><i class="icon iconfont icon-accessory"></i> 测试</li>
+            <li><i class="icon iconfont icon-qiandao"></i> 09-14</li>
+            <li><i class="icon iconfont icon-fenlei"></i> JAVA</li>
+            <li><i class="icon iconfont icon-accessory"></i> 服务器</li>
           </ul>
         </div>
         <div>
@@ -29,9 +29,9 @@
         <div>
           <ul class="all-tag clear-float">
             <li><i class="icon iconfont icon-people_fill"></i><span> test</span></li>
-            <li><i class="icon iconfont icon-qiandao"></i> 2018-09-14</li>
-            <li><i class="icon iconfont icon-fenlei"></i> 测试分类</li>
-            <li><i class="icon iconfont icon-accessory"></i> 测试</li>
+            <li><i class="icon iconfont icon-qiandao"></i> 09-14</li>
+            <li><i class="icon iconfont icon-fenlei"></i> JAVA</li>
+            <li><i class="icon iconfont icon-accessory"></i> 服务器</li>
           </ul>
         </div>
         <div>

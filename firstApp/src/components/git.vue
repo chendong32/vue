@@ -80,7 +80,7 @@
         </div>
         <div class="git-content-style">
           <p>
-            thinkphp整合Auth权限管理、支付宝、微信支付、阿里oss、友盟推送、融云即时通讯、云通讯短信、Email、Excel、PDF等等；基于thinkphp扩展了大量的功能；而不改动thinkphp核心；非常方便的升级、移植和使用；
+            thinkphp整合Auth权限管理、支付宝、微信支付、阿里oss、友盟推送、融云即时通讯、云通讯短信、Email、Excel……
           </p>
         </div>
         <div class="tag-tail clear-float">

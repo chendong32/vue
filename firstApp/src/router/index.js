@@ -14,10 +14,10 @@ Vue.prototype.$layer = layer(Vue);
 Vue.use(Router)
 Vue.use(VueResource)
 
+/*自定义组件*/
 Vue.component('my-component', {
   template: '<div>hello world!</div>'
 })
-
 Vue.component('v-html-panel',htmlPanel)
 
 export default new Router({
@@ -26,7 +26,7 @@ export default new Router({
     { path: '/category/1',name:'Java', component: category ,props: true},
     { path: '/category/2',name:'Linux', component: category ,props: true },
     { path: '/git',name:'Git',component: git },
-    { path: '/chat',name:'随言碎语',component: chat },
+    { path: '/chat',name:'文章留言',component: chat },
     {
       path: '*', //当url不存在 自动跳转到首页
       redirect: '/'

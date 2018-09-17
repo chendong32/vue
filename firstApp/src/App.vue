@@ -105,8 +105,7 @@
     </div>
 
     <div>
-      <div>开源博客程序搭建  © 2014-2017 BaiAi.com 版权所有 ICP证：豫ICP备14009546号-3</div>
-      <div>联系邮箱：baiai@baiai.com</div>
+      <div>© 2014-2017 baiai.com 版权所有 邮箱：baiai@baiai.com</div>
     </div>
   </div>
 </template>
@@ -126,7 +125,7 @@
           {title: 'Java', url: '/category/1'},
           {title: 'Linux', url: '/category/2'},
           {title: 'Git', url: '/git'},
-          {title: '随言碎语', url: '/chat'}
+          {title: '文章留言', url: '/chat'}
         ]
       }
     },
@@ -436,9 +435,6 @@
     }
     .media-style-nav-parent li:nth-child(5), .media-style-nav-parent li:last-child{
       display: none;
-    }
-    .media-style-nav-active{
-      background: rgba(0,0,0,0);
     }
   }
 
