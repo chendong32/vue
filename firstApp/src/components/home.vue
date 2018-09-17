@@ -20,7 +20,7 @@
             <p>其实PapaMan在学习docker的过程中，也查阅过很多资料，发现大多数文章要么就是写的很细，面面俱到；要么就是写的很深，跳过基础，却忽略了初学者，和希望了解docker技术的同学们的感受，使他们绕了弯路，或者望而却步……</p>
           </div>
 
-        <div class="tag-tail"><a class="tag-tail-a">阅读全文</a></div>
+        <div class="tag-tail"><a class="tag-tail-a" :class="{ expand:isExpand == 1}" @click="expand(1)">阅读全文</a></div>
       </div>
     </div>
 
@@ -45,7 +45,7 @@
           </p>
         </div>
 
-        <div class="tag-tail"><a class="tag-tail-a">阅读全文</a></div>
+        <div class="tag-tail"><a class="tag-tail-a" :class="{ expand:isExpand == 2}" @click="expand(2)">阅读全文</a></div>
       </div>
     </div>
 
@@ -68,7 +68,7 @@
           <p>废话不多说，docker的核心功能一定是启动镜像，也就是run命令，下面我们以nginx为例，介绍如何使用docker启动镜像。</p>
         </div>
 
-        <div class="tag-tail"><a class="tag-tail-a">阅读全文</a></div>
+        <div class="tag-tail"><a class="tag-tail-a" :class="{ expand:isExpand == 3}" @click="expand(3)">阅读全文</a></div>
       </div>
     </div>
 
@@ -90,25 +90,19 @@ export default {
   name: 'home',
   data () {
     return {
-      msg: 'assest',
-      message: '<em>show</em>'
+      isExpand: 0
     }
   },
-  filters: {
-    capitalize: function (value) {
-      if (!value) return ''
-      value = value.toString()
-      return value.charAt(0).toUpperCase() + value.slice(1)
-    }
-  },
-  computed: {
-    // 计算属性的 getter
-    reversedMessage: function () {
-      // `this` 指向 vm 实例
-      return this.msg.split('').reverse().join('')
+  methods: {
+    goBack() {
+      window.history.length > 1
+        ? this.$router.go(-1)
+        : this.$router.push('/')
+    },
+    expand: function (isExpand) {
+      this.isExpand = this.isExpand == isExpand? 0: isExpand;
     }
   }
-
 }
 </script>
 
@@ -176,6 +170,11 @@ export default {
 
   .not-allowed {
     cursor: not-allowed;
+  }
+
+  .expand{
+    background-color: #dcdcdc;
+    color: #008CBA;
   }
 
   @media (max-width: 1300px) and (min-width: 0px){
