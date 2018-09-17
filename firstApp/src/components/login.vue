@@ -1,5 +1,5 @@
-<template>
-  <div class="login">
+<template xmlns:v-bind="http://www.w3.org/1999/xhtml">
+  <div class="loginForm">
 
       <label for="login_field">
         Username or email address
@@ -9,11 +9,29 @@
         Password
       </label>
       <input type="password" name="password" id="password" class="input-block input-font-style"/>
-      <input type="submit" name="commit" value="Sign in" class="btn-block input-font-style"/>
+      <input type="button" name="commit" v-model="signText" class="btn-block input-font-style" :class="{ signing:isLogin == true}" v-bind:disabled="isLogin" @click="login()"/>
   </div>
 </template>
 <script>
-  export default{
+  export default {
+    name: 'login',
+    data () {
+      return {
+        isLogin: false ,
+        signText: "Sign in"
+      }
+    },
+    methods: {
+      goBack() {
+        window.history.length > 1
+          ? this.$router.go(-1)
+          : this.$router.push('/')
+      },
+      login: function () {
+        this.isLogin = true;
+        this.signText = "Signing in…"
+      }
+    }
   }
 </script>
 <style>
@@ -42,10 +60,15 @@
     border-radius: 0.25em;
     box-sizing: border-box;
     font-weight: 600;
+    cursor: pointer;
   }
   .input-font-style{
     font-size: 14px;
     line-height: 20px;
     padding: 6px 12px;
+  }
+  .signing {
+    background-color: rgba(47,193,81,0.8);
+    cursor: not-allowed;
   }
 </style>
