@@ -69,6 +69,6 @@
   }
   .signing {
     background-color: rgba(47,193,81,0.8);
-    cursor: not-allowed;
+    cursor: default;
   }
 </style>
