@@ -16,7 +16,7 @@
         <ul class="nav-parent media-style-nav-parent">
           <li class="nav-child nav-active media-style-nav-active" :style="{width:activeWidth + 'px' , left:activeLeft + 'px'}"></li>
           <li v-for="item in nav" class="nav-child media-style-nav-child" @mouseover="getPosition" @mouseout="movePosition"
-              @click="choose(item.title,$event)" :class="{'choose':isSelect == item.title}">
+              @click="choose(item.url,$event)" :class="{'choose':isSelect == item.url}">
             <router-link :to="{path:item.url}">{{item.title}}</router-link>
           </li>
         </ul>
@@ -117,7 +117,7 @@
     name: 'App',
     data() {
       return {
-        isSelect: '首页',
+        isSelect: '/',
         activeWidth: 0,
         activeLeft: 0,
         nav: [
@@ -152,11 +152,7 @@
         $('.nav-active').stop().animate({'left': this.activeLeft, 'width': this.activeWidth}, 300);
       },
       home: function (isSelect) {
-        if (this.$route.name == null) {
-          this.isSelect = '首页';
-        } else {
-          this.isSelect = this.$route.name;
-        }
+        this.isSelect = this.$route.path;
         this.$nextTick(function () {
           this.movePosition();
         })
@@ -170,6 +166,11 @@
     },
     mounted() {/*解决页面刷新时选中状态问题*/
       this.home();
+    },
+    watch:{/* 监听,当路由发生变化的时候执行*/
+      $route(to,from){
+        this.home();
+      }
     }
 
   }
