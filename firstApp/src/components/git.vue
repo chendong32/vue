@@ -33,7 +33,7 @@
         </div>
         <div class="tag-tail clear-float">
           <div class="tag-left-style">Latest commit <strong>2018-09-14</strong></div>
-          <a class="tag-tail-a">Download as zip</a>
+          <a href="https://codeload.github.com/chendong32/vue/zip/master" class="tag-tail-a">Download ZIP</a>
         </div>
       </div>
     </div>
@@ -59,7 +59,7 @@
         </div>
         <div class="tag-tail clear-float">
           <div class="tag-left-style">Latest commit <strong>2018-09-14</strong></div>
-          <a class="tag-tail-a">Download as zip</a>
+          <a href="https://codeload.github.com/chendong32/vue/zip/master" class="tag-tail-a">Download ZIP</a>
         </div>
       </div>
     </div>
@@ -85,7 +85,7 @@
         </div>
         <div class="tag-tail clear-float">
           <div class="tag-left-style">Latest commit <strong>2018-09-14</strong></div>
-          <a class="tag-tail-a">Download as zip</a>
+          <a href="https://codeload.github.com/chendong32/vue/zip/master" class="tag-tail-a">Download ZIP</a>
         </div>
       </div>
     </div>
