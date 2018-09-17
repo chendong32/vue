@@ -112,6 +112,7 @@
 
 <script>
   import $ from 'jquery'
+  import login from '@/components/login'
 
   export default {
     name: 'App',
@@ -158,7 +159,15 @@
         })
       },
       login: function () {
-        this.$layer.alert("click login");
+        this.$layer.iframe({
+          content: {
+            content: login, //传递的组件对象
+            parent: this,//当前的vue对象
+            data:{}//props
+          },
+          area:['400px','300px'],
+          title:""
+        });
       },
       logout:function () {
         this.$layer.alert("click logout");
