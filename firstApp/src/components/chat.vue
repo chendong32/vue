@@ -5,7 +5,7 @@
       <div class="left-content clear-float">
         <div class="tag-tail clear-float">
           <div class="tag-left-style">Latest comment <strong>2018-09-14</strong></div>
-          <a class="tag-tail-a">comment</a>
+          <a class="tag-tail-a" @click="comment">comment</a>
         </div>
         <div class="time-line time-line-container">
           <div class="time-one">
@@ -86,6 +86,9 @@
             this.$router.replace({path: '/bar/posts'})
           }
         )
+      },
+      comment: function () {
+        this.$layer.alert("comment");
       }
     }
   }
@@ -204,38 +207,44 @@
     cursor: pointer;
   }
 
-  @media (max-width: 1300px) and (min-width: 0px){
+  @media (max-width: 1300px) and (min-width: 0px) {
     .media-style-none {
-      display: none!important;
+      display: none !important;
     }
+
     .media-style-pad {
       padding: 0 6em;
     }
+
     .down-container {
       padding: 6em 6em 0;
     }
-    .media-style-category,.media-style-chat,.media-style-git,.media-style-home{
+
+    .media-style-category, .media-style-chat, .media-style-git, .media-style-home {
       width: 100%;
     }
   }
 
-  @media (max-width: 820px) and (min-width: 0px){
-    .media-style-nav-parent{
+  @media (max-width: 820px) and (min-width: 0px) {
+    .media-style-nav-parent {
       position: absolute;
     }
-    .media-style-nav-parent li:nth-child(5), .media-style-nav-parent li:last-child{
+
+    .media-style-nav-parent li:nth-child(5), .media-style-nav-parent li:last-child {
       display: none;
     }
   }
 
-  @media (max-width: 600px) and (min-width: 0px){
+  @media (max-width: 600px) and (min-width: 0px) {
     .media-style-pad {
       padding: 0 1em;
     }
+
     .down-container {
       padding: 6em 1em 0;
     }
-    .media-style-nav-parent li:nth-child(5), .media-style-nav-parent li:last-child{
+
+    .media-style-nav-parent li:nth-child(5), .media-style-nav-parent li:last-child {
       display: none;
     }
   }
