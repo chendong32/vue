@@ -75,7 +75,8 @@
     },
     created () {
       this.isLogin = this.$route.params.isLogin == undefined ? this.isLogin : this.$route.params.isLogin;//访问参数
-      console.log(this.isLogin);
+      console.log("parent->isLogin: "+this.$route.params.isLogin);
+      console.log("chat->isLogin: "+this.isLogin);
     },
     methods: {
       comment: function () {

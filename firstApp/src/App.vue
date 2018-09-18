@@ -121,7 +121,7 @@
         isSelect: '/',
         activeWidth: 0,
         activeLeft: 0,
-        isLogin: false,
+        isLogin: 1,
         isLoginFrame: '',
         isShow: true,
         nav: [
@@ -166,14 +166,14 @@
           content: {
             content: login, //传递的组件对象
             parent: this,//当前的vue对象
-            data:{isLogin: false}//props
+            data:{}//props
           },
           area:['308px','300px'],
           title:"Sign in to BaiaI"
         });
       },
       logout:function () {
-        this.isLogin = false;
+        this.isLogin = 1;
         this.$router.push({
           name: '文章留言',
           params: {
@@ -198,13 +198,20 @@
         } else {
           this.isShow = true;
         }
-        console.log("isLogin: "+this.isLogin);
+        if(this.isLogin<20){
+          this.isLogin = this.isLogin+2;
+        }else if(this.isLogin%2==0){
+          this.isLogin=2;
+        }else{
+          this.isLogin=1;
+        }
+        console.log("App->isLogin: "+this.isLogin);
       },
       isLogin(curVal,oldVal){
         if(curVal){
           this.$layer.close(this.isLoginFrame);
           this.$router.push({
-            name: '文章留言',
+            name: this.$router.name,
             params: {
               isLogin: curVal
             }
