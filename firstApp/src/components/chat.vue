@@ -3,9 +3,9 @@
 
     <div class="left-panel">
       <div class="left-content clear-float">
-        <div class="clear-float"  :class="{'tag-tail':isLogin}">
+        <div class="clear-float"  :class="{'tag-tail':isLogin==0}">
           <div class="tag-left-style">Latest comment <strong>2018-09-14</strong></div>
-          <a class="tag-tail-a" @click="isLogin && comment()" :class="{'not-allowed':!isLogin}">comment</a>{{isLogin}}
+          <a class="tag-tail-a" @click="isLogin==0 && comment()" :class="{'not-allowed':isLogin==1}">comment</a>
         </div>
         <div class="time-line time-line-container">
           <div class="time-one">
@@ -68,15 +68,14 @@
     name: "chat",
     data() {
       return {
-        isLogin: false,
+        isLogin: 1,//默认是未登录状态，无法提交评论
         isCommentFrame: '',
         isComment: 0
       }
     },
     created () {
       this.isLogin = this.$route.params.isLogin == undefined ? this.isLogin : this.$route.params.isLogin;//访问参数
-      console.log("parent->isLogin: "+this.$route.params.isLogin);
-      console.log("chat->isLogin: "+this.isLogin);
+      console.log("chat->isLogin: "+(this.isLogin==0?"ok":"error"));//0 表示登录状态，可提交评论
     },
     methods: {
       comment: function () {

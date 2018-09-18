@@ -36,7 +36,7 @@
         if (this.inputText.login != undefined && this.inputText.password != undefined) {
           this.signText = "Signing in…"
           this.isLogin = true;
-          this.$parent.isLogin = this.isLogin;
+          this.$parent.isLogin = 0;//主动登录状态
         } else if (this.isError) {
           $(".vl-notice-title").html("Incorrect username or password.");
           $(".vl-notice-title").css({"background-color":"#ffdce0","color": "#86181d"});

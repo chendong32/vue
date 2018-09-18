@@ -23,10 +23,10 @@
       </div>
       <div class="tail">
         <ul class="nav-parent" v-show="isShow">
-          <li class="nav-child nav-tail" v-show="!isLogin">
+          <li class="nav-child nav-tail" v-show="isLogin">
             <a @click="login">登录</a>
           </li>
-          <li class="nav-child nav-tail" v-show="isLogin">
+          <li class="nav-child nav-tail" v-show="!isLogin">
             <a @click="logout">退出</a>
           </li>
         </ul>
@@ -121,7 +121,7 @@
         isSelect: '/',
         activeWidth: 0,
         activeLeft: 0,
-        isLogin: 1,
+        isLogin: 1,//奇数为未登录状态
         isLoginFrame: '',
         isShow: true,
         nav: [
@@ -173,7 +173,8 @@
         });
       },
       logout:function () {
-        this.isLogin = 1;
+        console.log("logout");
+        this.isLogin = 1;//主动登出，状态重置为未登录状态(当前业务逻辑不会触发主动退出)
         this.$router.push({
           name: '文章留言',
           params: {
@@ -198,20 +199,19 @@
         } else {
           this.isShow = true;
         }
-        if(this.isLogin<20){
+        if(this.isLogin<9){
           this.isLogin = this.isLogin+2;
         }else if(this.isLogin%2==0){
           this.isLogin=2;
         }else{
           this.isLogin=1;
         }
-        console.log("App->isLogin: "+this.isLogin);
       },
       isLogin(curVal,oldVal){
-        if(curVal){
+        if(curVal == 0){/*主动登录时触发*/
           this.$layer.close(this.isLoginFrame);
           this.$router.push({
-            name: this.$router.name,
+            name: "文章留言",
             params: {
               isLogin: curVal
             }
