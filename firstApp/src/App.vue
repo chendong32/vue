@@ -122,6 +122,7 @@
         activeWidth: 0,
         activeLeft: 0,
         isLogin: false,
+        isLoginFrame: '',
         nav: [
           {title: '首页', url: '/'},
           {title: 'Java', url: '/category/1'},
@@ -160,7 +161,7 @@
         })
       },
       login: function () {
-        this.$layer.iframe({
+        this.isLoginFrame = this.$layer.iframe({
           content: {
             content: login, //传递的组件对象
             parent: this,//当前的vue对象
@@ -181,6 +182,11 @@
     watch:{/* 监听,当路由发生变化的时候执行*/
       $route(to,from){
         this.home();
+      },
+      isLogin(curVal,oldVal){
+        if(curVal){
+          this.$layer.close(this.isLoginFrame);
+        }
       }
     }
 
