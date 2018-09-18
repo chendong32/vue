@@ -172,8 +172,13 @@
         });
       },
       logout:function () {
-        this.$router.replace("/");
         this.isLogin = false;
+        this.$router.push({
+          name: '文章留言',
+          params: {
+            isLogin: this.isLogin
+          }
+        })
       }
     },
     mounted() {/*解决页面刷新时选中状态问题*/
@@ -186,6 +191,12 @@
       isLogin(curVal,oldVal){
         if(curVal){
           this.$layer.close(this.isLoginFrame);
+          this.$router.push({
+            name: '文章留言',
+            params: {
+              isLogin: curVal
+            }
+          })
         }
       }
     }

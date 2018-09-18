@@ -105,6 +105,7 @@
 
 <script>
   export default {
+    name: 'git',
     data() {
       return {
         loading: false,

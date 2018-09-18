@@ -1,5 +1,4 @@
 <template xmlns:v-bind="http://www.w3.org/1999/xhtml">
-  <div>
     <div class="loginForm">
       <form @submit.prevent="submit">
         <label for="login_field">
@@ -15,7 +14,6 @@
                :class="{ signing:isLogin == true}" v-bind:disabled="isLogin"/>
       </form>
     </div>
-  </div>
 </template>
 <script>
   export default {
