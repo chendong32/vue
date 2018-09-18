@@ -447,9 +447,4 @@
       display: none;
     }
   }
-  @media (max-width: 400px) and (min-width: 0px){
-    .media-style-header{
-      display: none!important;
-    }
-  }
 </style>

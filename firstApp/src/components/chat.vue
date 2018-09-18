@@ -66,27 +66,10 @@
     name: "",
     data() {
       return {
-        name: '',
         selected: ''
       }
     },
     methods: {
-      submit: function () {
-        // replace getPost with your data fetching util / API wrapper
-        this.$http.get(
-          'static/json/data.json',
-          {
-            params: {
-              name: this.name,
-              selected: this.selected
-            }
-          }
-        ).then(function (response) {
-            alert('请求成功')
-            this.$router.replace({path: '/bar/posts'})
-          }
-        )
-      },
       comment: function () {
         this.$layer.alert("comment");
       }
@@ -148,6 +131,19 @@
   .time-line {
     border-left: 2px solid #ccc;
     margin: 2em 0em 2em 2em;
+  }
+
+  .time-length-long, .time-length-short {
+    background-color: #ccc;
+    border :none;
+  }
+
+  .time-length-long {
+    height: 2px;
+  }
+
+  .time-length-short {
+    height: 1px;
   }
 
   .time-length-long, .time-title-long, .time-length-short, .time-title-short {
