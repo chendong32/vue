@@ -22,7 +22,7 @@
         </ul>
       </div>
       <div class="tail">
-        <ul class="nav-parent">
+        <ul class="nav-parent" v-show="isShow">
           <li class="nav-child nav-tail" v-show="!isLogin">
             <a @click="login">登录</a>
           </li>
@@ -123,6 +123,7 @@
         activeLeft: 0,
         isLogin: false,
         isLoginFrame: '',
+        isShow: true,
         nav: [
           {title: '首页', url: '/'},
           {title: 'Java', url: '/category/1'},
@@ -182,11 +183,22 @@
       }
     },
     mounted() {/*解决页面刷新时选中状态问题*/
+      if(this.$route.path == "/chat"){
+        this.isShow = false;
+      } else {
+        this.isShow = true;
+      }
       this.home();
     },
     watch:{/* 监听,当路由发生变化的时候执行*/
       $route(to,from){
         this.home();
+        if(to.path == "/chat"){
+          this.isShow = false;
+        } else {
+          this.isShow = true;
+        }
+        console.log("isLogin: "+this.isLogin);
       },
       isLogin(curVal,oldVal){
         if(curVal){

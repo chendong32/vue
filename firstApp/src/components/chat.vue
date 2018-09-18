@@ -5,7 +5,7 @@
       <div class="left-content clear-float">
         <div class="clear-float"  :class="{'tag-tail':isLogin}">
           <div class="tag-left-style">Latest comment <strong>2018-09-14</strong></div>
-          <a class="tag-tail-a" @click="comment">comment</a>
+          <a class="tag-tail-a" @click="isLogin && comment()" :class="{'not-allowed':!isLogin}">comment</a>{{isLogin}}
         </div>
         <div class="time-line time-line-container">
           <div class="time-one">
@@ -83,18 +83,15 @@
           content: {
             content: comment, //传递的组件对象
             parent: this,//当前的vue对象
-            data:{isComment: 0}//props
+            data:{}//props
           },
           area:['308px','300px'],
           title:"Enter a comment"
         });
-        console.log(this.isCommentFrame);
       }
     },
     watch:{
       isComment(curVal,oldVal){
-        console.log(curVal+" "+oldVal);
-        console.log(this.isCommentFrame);
         this.$layer.close(this.isCommentFrame);
       }
     }
