@@ -208,7 +208,7 @@
         }
       },
       isLogin(curVal,oldVal){
-        if(curVal == 0){/*主动登录时触发*/
+        if(curVal == 0 || (curVal%2==0&&this.$route.name=="文章留言")){/*主动登录时触发，条件2目前未触发路由push*/
           this.$layer.close(this.isLoginFrame);
           this.$router.push({
             name: "文章留言",
