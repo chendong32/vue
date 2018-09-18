@@ -30,9 +30,7 @@
       login: function () {
         this.isLogin = true;
         this.signText = "Signing in…"
-        setTimeout(function () {
-          alert("login");
-        }, 500);
+        this.$parent.isLogin = this.isLogin;
       }
     }
   }

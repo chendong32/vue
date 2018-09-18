@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-on="http://www.w3.org/1999/xhtml">
   <div id="app">
 
     <div class="nav-header app-container header-color media-style-pad clear-float">
@@ -23,10 +23,10 @@
       </div>
       <div class="tail">
         <ul class="nav-parent">
-          <li class="nav-child nav-tail">
+          <li class="nav-child nav-tail" v-show="!isLogin">
             <a @click="login">登录</a>
           </li>
-          <li class="nav-child nav-tail">
+          <li class="nav-child nav-tail" v-show="isLogin">
             <a @click="logout">退出</a>
           </li>
         </ul>
@@ -121,6 +121,7 @@
         isSelect: '/',
         activeWidth: 0,
         activeLeft: 0,
+        isLogin: false,
         nav: [
           {title: '首页', url: '/'},
           {title: 'Java', url: '/category/1'},
@@ -163,7 +164,7 @@
           content: {
             content: login, //传递的组件对象
             parent: this,//当前的vue对象
-            data:{}//props
+            data:{isLogin: false}//props
           },
           area:['308px','300px'],
           title:"Sign in to BaiaI"
@@ -171,6 +172,7 @@
       },
       logout:function () {
         this.$router.replace("/");
+        this.isLogin = false;
       }
     },
     mounted() {/*解决页面刷新时选中状态问题*/
