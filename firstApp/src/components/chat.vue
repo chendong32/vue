@@ -3,7 +3,7 @@
 
     <div class="left-panel">
       <div class="left-content clear-float">
-        <div class="tag-tail clear-float">
+        <div class="clear-float"  :class="{'tag-tail':isLogin}">
           <div class="tag-left-style">Latest comment <strong>2018-09-14</strong></div>
           <a class="tag-tail-a" @click="comment">comment</a>
         </div>
@@ -62,16 +62,40 @@
 </template>
 
 <script>
+  import comment from '@/components/comment'
+
   export default {
-    name: "",
+    name: "chat",
     data() {
       return {
-        selected: ''
+        isLogin: false,
+        isCommentFrame: '',
+        isComment: 0
       }
+    },
+    created () {
+      this.isLogin = this.$route.params.isLogin == undefined ? this.isLogin : this.$route.params.isLogin;//访问参数
+      console.log(this.isLogin);
     },
     methods: {
       comment: function () {
-        this.$layer.alert("comment");
+        this.isCommentFrame = this.$layer.iframe({
+          content: {
+            content: comment, //传递的组件对象
+            parent: this,//当前的vue对象
+            data:{isComment: 0}//props
+          },
+          area:['308px','300px'],
+          title:"Enter a comment"
+        });
+        console.log(this.isCommentFrame);
+      }
+    },
+    watch:{
+      isComment(curVal,oldVal){
+        console.log(curVal+" "+oldVal);
+        console.log(this.isCommentFrame);
+        this.$layer.close(this.isCommentFrame);
       }
     }
   }
