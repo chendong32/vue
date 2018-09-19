@@ -19,11 +19,11 @@
           chendong32/vue
         </h4>
         <div>
-          <ul class="all-tag clear-float">
+          <ul class="all-tag clear-float media-style-tag-parent">
             <li><i class="icon iconfont icon-browse"></i> 0</li>
             <li><i class="icon iconfont icon-collection"></i> 0</li>
-            <li><i class="icon iconfont icon-fenlei"></i> JavaScript</li>
             <li><i class="icon iconfont icon-share"></i> master</li>
+            <li><i class="icon iconfont icon-fenlei"></i> JavaScript</li>
           </ul>
         </div>
         <div class="git-content-style">
@@ -32,7 +32,7 @@
           </p>
         </div>
         <div class="tag-tail clear-float">
-          <div class="tag-left-style">Latest commit <strong>2018-09-14</strong></div>
+          <div class="tag-left-style media-style-tag">Latest commit <strong>2018-09-14</strong></div>
           <a href="https://codeload.github.com/chendong32/vue/zip/master" class="tag-tail-a">Download ZIP</a>
         </div>
       </div>
@@ -45,11 +45,11 @@
           chendong32/vue
         </h4>
         <div>
-          <ul class="all-tag clear-float">
+          <ul class="all-tag clear-float media-style-tag-parent">
             <li><i class="icon iconfont icon-browse"></i> 0</li>
             <li><i class="icon iconfont icon-collection"></i> 0</li>
-            <li><i class="icon iconfont icon-fenlei"></i> JavaScript</li>
             <li><i class="icon iconfont icon-share"></i> master</li>
+            <li><i class="icon iconfont icon-fenlei"></i> JavaScript</li>
           </ul>
         </div>
         <div class="git-content-style">
@@ -58,7 +58,7 @@
           </p>
         </div>
         <div class="tag-tail clear-float">
-          <div class="tag-left-style">Latest commit <strong>2018-09-14</strong></div>
+          <div class="tag-left-style media-style-tag">Latest commit <strong>2018-09-14</strong></div>
           <a href="https://codeload.github.com/chendong32/vue/zip/master" class="tag-tail-a">Download ZIP</a>
         </div>
       </div>
@@ -71,11 +71,11 @@
           chendong32/vue
         </h4>
         <div>
-          <ul class="all-tag clear-float">
+          <ul class="all-tag clear-float media-style-tag-parent">
             <li><i class="icon iconfont icon-browse"></i> 0</li>
             <li><i class="icon iconfont icon-collection"></i> 0</li>
-            <li><i class="icon iconfont icon-fenlei"></i> JavaScript</li>
             <li><i class="icon iconfont icon-share"></i> master</li>
+            <li><i class="icon iconfont icon-fenlei"></i> JavaScript</li>
           </ul>
         </div>
         <div class="git-content-style">
@@ -84,7 +84,7 @@
           </p>
         </div>
         <div class="tag-tail clear-float">
-          <div class="tag-left-style">Latest commit <strong>2018-09-14</strong></div>
+          <div class="tag-left-style media-style-tag">Latest commit <strong>2018-09-14</strong></div>
           <a href="https://codeload.github.com/chendong32/vue/zip/master" class="tag-tail-a">Download ZIP</a>
         </div>
       </div>
@@ -92,11 +92,11 @@
 
     <div class="left-panel">
       <div class="page">
-        <a class="page-num">首页</a>
+        <a class="page-num media-style-page-start">首页</a>
         <a class="page-num not-allowed">上一页</a>
         <span class="page-current">1</span>
         <a class="page-num not-allowed">下一页</a>
-        <a class="page-num">末页</a>
+        <a class="page-num media-style-page-end">末页</a>
       </div>
     </div>
 
@@ -240,7 +240,6 @@
       width: 100%;
     }
   }
-
   @media (max-width: 820px) and (min-width: 0px){
     .media-style-nav-parent{
       position: absolute;
@@ -249,7 +248,6 @@
       display: none;
     }
   }
-
   @media (max-width: 600px) and (min-width: 0px){
     .media-style-pad {
       padding: 0 1em;
@@ -257,8 +255,19 @@
     .down-container {
       padding: 6em 1em 0;
     }
-    .media-style-nav-parent li:nth-child(5), .media-style-nav-parent li:last-child{
+    .media-style-nav-parent li:nth-child(5), .media-style-nav-parent li:last-child, .media-style-tag-parent li:nth-child(4){
       display: none;
+    }
+  }
+  @media (max-width: 400px) and (min-width: 0px){
+    .media-style-tag-parent li:nth-child(4), .media-style-page-start, .media-style-page-end {
+      display: none;
+    }
+    .media-style-tag {
+      width: 55%;
+      white-space: nowrap;
+      text-overflow:ellipsis;
+      overflow:hidden;
     }
   }
 </style>

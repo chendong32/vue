@@ -4,16 +4,16 @@
     <div class="left-panel">
       <div class="left-content clear-float">
         <div class="clear-float"  :class="{'tag-tail':isLogin==0}">
-          <div class="tag-left-style">Latest comment <strong>2018-09-14</strong></div>
+          <div class="tag-left-style media-style-tag">Latest comment <strong>2018-09-14</strong></div>
           <a class="tag-tail-a" @click="isLogin==0 && comment()" :class="{'not-allowed':isLogin==1}">comment</a>
         </div>
-        <div class="time-line time-line-container">
+        <div class="time-line media-time-line">
           <div class="time-one">
             <div class="clear-float">
               <hr class="time-length-short"/>
               <div class="time-title-short"><strong>PapaMan</strong> <a>Docker最新简单易懂使用教程</a></div>
             </div>
-            <div class="time-content">
+            <div class="time-content media-time-content">
               <p>
                 关于为什么用nginx举例子，哈哈，前几天公司的技术部门来请教我组长，centos上的nginx怎么装，两个人聊了半天什么下载啊、配置啊、为什么启动不了之类的。我默默的说了一句，用docker起一个呗，他楞了一下，我在终端里敲了一行指令
                 docker run -d -p 80:80 nginx，然后打开 http://localhost 页面给他看，他愣住了。。。
@@ -23,7 +23,7 @@
               <hr class="time-length-short"/>
               <div class="time-title-short"><strong>PapaMan</strong> <a>对Docker的理解</a></div>
             </div>
-            <div class="time-content">
+            <div class="time-content media-time-content">
               <p>
                 PapaMan希望结合自己的学习经验和踩过的坑，以简单使用为主，先忽略掉复杂、不常用的功能，尽量浅显的介绍docker的核心使用方法，做到看了就懂，懂了就能用。
               </p>
@@ -34,11 +34,11 @@
               <hr class="time-length-long"/>
               <div class="time-title-long">08月</div>
             </div>
-            <div class="clear-float">
+            <div class="clear-float time-short-inline">
               <hr class="time-length-short"/>
               <div class="time-title-short"><strong>PapaMan</strong> <a>Docker的使用</a></div>
             </div>
-            <div class="time-content">
+            <div class="time-content media-time-content">
               <p>
                 PapaMan并不想按照系统的方式按部就班的讲解，况且这只是第一篇，后面会慢慢拓展。我更希望按照我们学习新知识时管用的思维方式，理解方式，来讲解；以快速上手，理解最基本核心功能为目的，掌握了核心再去拓展，你会发现容易很多，要先学会开机，才能上网、看视频、玩游戏不是？希望刚刚入门，或者希望了解docker的同学，看了这篇分享后，已经足够将容器玩的飞起。
               </p>
@@ -50,11 +50,11 @@
 
     <div class="left-panel">
       <div class="page">
-        <a class="page-num">首页</a>
+        <a class="page-num media-style-page-start">首页</a>
         <a class="page-num not-allowed">上一页</a>
         <span class="page-current">1</span>
         <a class="page-num not-allowed">下一页</a>
-        <a class="page-num">末页</a>
+        <a class="page-num media-style-page-end">末页</a>
       </div>
     </div>
 
@@ -184,12 +184,17 @@
   }
 
   .time-length-short {
-    width: 1em;
+    width: 5%;
     margin-top: 1.6em;
   }
 
   .time-title-short {
-    margin: 1em;
+    width: 85%;
+    margin: 1em 0 1em 1em;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    text-align: left;
   }
 
   .time-content {
@@ -224,45 +229,54 @@
     cursor: pointer;
   }
 
-  @media (max-width: 1300px) and (min-width: 0px) {
+  @media (max-width: 1300px) and (min-width: 0px){
     .media-style-none {
-      display: none !important;
+      display: none!important;
     }
-
     .media-style-pad {
       padding: 0 6em;
     }
-
     .down-container {
       padding: 6em 6em 0;
     }
-
-    .media-style-category, .media-style-chat, .media-style-git, .media-style-home {
+    .media-style-category,.media-style-chat,.media-style-git,.media-style-home{
       width: 100%;
     }
   }
-
-  @media (max-width: 820px) and (min-width: 0px) {
-    .media-style-nav-parent {
+  @media (max-width: 820px) and (min-width: 0px){
+    .media-style-nav-parent{
       position: absolute;
     }
-
-    .media-style-nav-parent li:nth-child(5), .media-style-nav-parent li:last-child {
+    .media-style-nav-parent li:nth-child(5), .media-style-nav-parent li:last-child{
       display: none;
     }
   }
-
-  @media (max-width: 600px) and (min-width: 0px) {
+  @media (max-width: 600px) and (min-width: 0px){
     .media-style-pad {
       padding: 0 1em;
     }
-
     .down-container {
       padding: 6em 1em 0;
     }
-
-    .media-style-nav-parent li:nth-child(5), .media-style-nav-parent li:last-child {
+    .media-style-nav-parent li:nth-child(5), .media-style-nav-parent li:last-child, .media-style-tag-parent li:nth-child(4){
       display: none;
+    }
+  }
+  @media (max-width: 400px) and (min-width: 0px){
+    .media-style-tag-parent li:nth-child(4), .media-style-page-start, .media-style-page-end {
+      display: none;
+    }
+    .media-style-tag {
+      width: 60%;
+      white-space: nowrap;
+      text-overflow:ellipsis;
+      overflow:hidden;
+    }
+    .media-time-line{
+      margin: 1em 0em 1em 1em;
+    }
+    .media-time-content{
+      padding-left: 1em;
     }
   }
 </style>

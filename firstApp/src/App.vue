@@ -316,6 +316,10 @@
     text-shadow: 0 1px 0 rgba(255, 255, 255, .25);
   }
 
+  .header a {
+    padding-left: 0;
+  }
+
   .nav-header a:hover {
     color: #ffffff;
   }
