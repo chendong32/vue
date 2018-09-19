@@ -162,17 +162,19 @@
     color: #008CBA;
   }
 
-  @media (max-width: 1300px) and (min-width: 0px) {
-    .media-style-none {
-      display: none !important;
-    }
+  @media (max-width: 1500px) and (min-width: 0px){
     .media-style-pad {
-      padding: 0 6em;
+      padding: 0 3em;
     }
     .down-container {
-      padding: 6em 6em 0;
+      padding: 6em 3em 0;
     }
-    .media-style-category, .media-style-chat, .media-style-git, .media-style-home {
+  }
+  @media (max-width: 1200px) and (min-width: 0px){
+    .media-style-none {
+      display: none!important;
+    }
+    .media-style-category,.media-style-chat,.media-style-git,.media-style-home{
       width: 100%;
     }
   }

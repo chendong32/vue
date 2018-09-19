@@ -173,7 +173,7 @@
 
   .time-length-long {
     width: 2em;
-    margin: 2.8em 0;
+    margin: 2.6em 0;
   }
 
   .time-title-long {
@@ -228,16 +228,17 @@
     transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
     cursor: pointer;
   }
-
-  @media (max-width: 1300px) and (min-width: 0px){
-    .media-style-none {
-      display: none!important;
-    }
+  @media (max-width: 1500px) and (min-width: 0px){
     .media-style-pad {
-      padding: 0 6em;
+      padding: 0 3em;
     }
     .down-container {
-      padding: 6em 6em 0;
+      padding: 6em 3em 0;
+    }
+  }
+  @media (max-width: 1200px) and (min-width: 0px){
+    .media-style-none {
+      display: none!important;
     }
     .media-style-category,.media-style-chat,.media-style-git,.media-style-home{
       width: 100%;
