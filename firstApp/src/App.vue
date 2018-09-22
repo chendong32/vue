@@ -44,11 +44,11 @@
         <div class="b-tags">
           <h4 class="b-title">热门标签</h4>
           <ul class="all-tag">
-            <li><a class="tag-style">docker</a></li>
-            <li><a class="tag-style">linux</a></li>
-            <li><a class="tag-style">nginx</a></li>
-            <li><a class="tag-style">镜像</a></li>
-            <li><a class="tag-style">服务器</a></li>
+            <li class="tag-a-color"><router-link to="/choose/docker" class="tag-style">docker</router-link></li>
+            <li class="tag-a-color"><router-link to="/choose/linux" class="tag-style">linux</router-link></li>
+            <li class="tag-a-color"><router-link to="/choose/nginx" class="tag-style">nginx</router-link></li>
+            <li class="tag-a-color"><router-link to="/choose/images" class="tag-style">镜像</router-link></li>
+            <li class="tag-a-color"><router-link to="/choose/server" class="tag-style">服务器</router-link></li>
           </ul>
         </div>
 
@@ -59,9 +59,9 @@
         <div class="b-tags">
           <h4 class="b-title">置顶推荐</h4>
           <ul class="all-tag">
-            <li class="recommend-style"><i class="icon iconfont icon-diantileimu"></i><a> Docker最新简单易懂使用教程</a></li>
-            <li class="recommend-style"><i class="icon iconfont icon-diantileimu"></i><a> 对Docker的理解</a></li>
-            <li class="recommend-style"><i class="icon iconfont icon-diantileimu"></i><a> Docker的使用</a></li>
+            <li class="recommend-style"><i class="icon iconfont icon-diantileimu"></i> <router-link to="/choose/1">Docker最新简单易懂使用教程</router-link></li>
+            <li class="recommend-style"><i class="icon iconfont icon-diantileimu"></i> <router-link to="/choose/2">对Docker的理解</router-link></li>
+            <li class="recommend-style"><i class="icon iconfont icon-diantileimu"></i> <router-link to="/choose/3">Docker的使用</router-link></li>
           </ul>
         </div>
 
@@ -71,9 +71,9 @@
         <div class="b-tags">
           <h4 class="b-title">最新评论</h4>
           <ul class="all-tag">
-            <li class="comment-style"><span>PapaMan</span> 发表在《<a>Docker最新简单易懂使用教程</a>》</li>
-            <li class="comment-style"><span>PapaMan</span> 发表在《<a>对Docker的理解</a>》</li>
-            <li  class="comment-style comment-end"><span>PapaMan</span> 发表在《<a>Docker的使用</a>》</li>
+            <li class="comment-style recommend-style"><span>PapaMan</span> 发表在《<router-link to="/choose/1">Docker最新简单易懂使用教程</router-link>》</li>
+            <li class="comment-style recommend-style"><span>PapaMan</span> 发表在《<router-link to="/choose/1">对Docker的理解</router-link>》</li>
+            <li  class="comment-style comment-end recommend-style"><span>PapaMan</span> 发表在《<router-link to="/choose/1">Docker的使用</router-link>》</li>
           </ul>
         </div>
       </div>
@@ -427,7 +427,7 @@
     text-align: left;
     width: 100%;
   }
-  .recommend-style a {
+  .recommend-style a, .tag-a-color a {
     color: #008CBA;
   }
   input[type=submit] {
