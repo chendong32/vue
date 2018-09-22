@@ -65,9 +65,6 @@ export default {
     },
     expand: function (isExpand) {
       this.isExpand = this.isExpand == isExpand? 0: isExpand;
-      if(this.$route.path.indexOf("/choose/")!=-1 && this.isExpand == 0){
-        this.$router.push({path:"/"});
-      }
     },
     page: function (pageNo) {
       this.$layer.alert(pageNo);//分页方法
