@@ -1,6 +1,5 @@
 <template>
   <div class="home media-style-home">
-
     <div v-for='(item, index) in contentList'>
       <div class="left-panel" v-show="isExpand==0 || isExpand==1+index">
         <div class="left-content clear-float">
@@ -23,7 +22,6 @@
         </div>
       </div>
     </div>
-
     <div class="left-panel" v-show="isExpand==0">
       <div class="page">
         <a class="page-num media-style-page-start" @click="page(1)">首页</a>
@@ -33,7 +31,6 @@
         <a class="page-num media-style-page-end" @click="page(2)">末页</a>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -41,57 +38,30 @@
 export default {
   name: 'leftPanel',
   props: {
-    url: {
+    result: {
       required: true
     }
   },
   data () {
     return {
       isExpand: 0,
-      contentList:[{
-        "accessory": "服务器",
-        "classify": "JAVA",
-        "summary": "<p>其实PapaMan在学习docker的过程中，也查阅过很多资料，发现大多数文章要么就是写的很细，面面俱到；要么就是写的很深，跳过基础，却忽略了初学者，和希望了解docker技术的同学们的感受，使他们绕了弯路，或者望而却步；再有就是每个功能介绍的太独立，没有互相联系，也没有例子方便理解。</p>",
-        "content": "<p>PapaMan希望结合自己的学习经验和踩过的坑，以简单使用为主，先忽略掉复杂、不常用的功能，尽量浅显的介绍docker的核心使用方法，做到看了就懂，懂了就能用。</p><p>废话不多说，docker的核心功能一定是启动镜像，也就是run命令，下面我们以nginx为例，介绍如何使用docker启动镜像。</p>",
-        "people_fill": "test",
-        "qiandao": "09-14",
-        "title": "Docker最新简单易懂使用教程"
-      }, {
-        "accessory": "镜像",
-        "classify": "JAVA",
-        "summary": "<p>其实PapaMan在学习docker的过程中，也查阅过很多资料，发现大多数文章要么就是写的很细，面面俱到；要么就是写的很深，跳过基础，却忽略了初学者，和希望了解docker技术的同学们的感受，使他们绕了弯路，或者望而却步；再有就是每个功能介绍的太独立，没有互相联系，也没有例子方便理解。</p>",
-        "content": "<p>PapaMan希望结合自己的学习经验和踩过的坑，以简单使用为主，先忽略掉复杂、不常用的功能，尽量浅显的介绍docker的核心使用方法，做到看了就懂，懂了就能用。</p><p>废话不多说，docker的核心功能一定是启动镜像，也就是run命令，下面我们以nginx为例，介绍如何使用docker启动镜像。</p>",
-        "people_fill": "admin",
-        "qiandao": "09-14",
-        "title": "对Docker的理解"
-      }, {
-        "accessory": "容器",
-        "classify": "JAVA",
-        "summary": "<p>其实PapaMan在学习docker的过程中，也查阅过很多资料，发现大多数文章要么就是写的很细，面面俱到；要么就是写的很深，跳过基础，却忽略了初学者，和希望了解docker技术的同学们的感受，使他们绕了弯路，或者望而却步；再有就是每个功能介绍的太独立，没有互相联系，也没有例子方便理解。</p>",
-        "content": "<p>PapaMan希望结合自己的学习经验和踩过的坑，以简单使用为主，先忽略掉复杂、不常用的功能，尽量浅显的介绍docker的核心使用方法，做到看了就懂，懂了就能用。</p><p>废话不多说，docker的核心功能一定是启动镜像，也就是run命令，下面我们以nginx为例，介绍如何使用docker启动镜像。</p>",
-        "people_fill": "baiai",
-        "qiandao": "09-14",
-        "title": "Docker的使用"
-      }
-      ]
+      contentList:[]
     }
   },
   created () {
     //this.$layer.alert("created");//后台一次性获取数据
   },
   watch: {
-    url (value) {
+    result (value) {
       this.load(value)
     }
   },
   mounted () {
-    this.load(this.url)
+    this.load(this.contentList)
   },
   methods: {
     goBack() {
-      window.history.length > 1
-        ? this.$router.go(-1)
-        : this.$router.push('/')
+      window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/');
     },
     expand: function (isExpand) {
       this.isExpand = this.isExpand == isExpand? 0: isExpand;
@@ -99,9 +69,9 @@ export default {
     page: function (pageNo) {
       this.$layer.alert(pageNo);//分页方法
     },
-    load (url) {
-      if (url && url.length > 0) {
-        this.$layer.alert(url);
+    load (contentList) {
+      if (contentList && contentList.length > 0) {
+        this.contentList = contentList;
       }
     }
   }
