@@ -1,7 +1,7 @@
 <template>
   <div class="category media-style-category">
 
-    <div class="left-panel">
+    <div class="left-panel" v-show="isExpand==0 || isExpand==1">
       <div class="left-content clear-float">
         <h4 class="b-title">
           Docker最新简单易懂使用教程
@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <div class="left-panel">
+    <div class="left-panel" v-show="isExpand==0 || isExpand==2">
       <div class="left-content clear-float">
         <h4 class="b-title">
           对Docker的理解
@@ -44,13 +44,13 @@
       </div>
     </div>
 
-    <div class="left-panel">
+    <div class="left-panel" v-show="isExpand==0">
       <div class="page">
-        <a class="page-num media-style-page-start">首页</a>
-        <a class="page-num not-allowed">上一页</a>
+        <a class="page-num media-style-page-start" @click="page(1)">首页</a>
+        <a class="page-num not-allowed" @click="1>1 && page(1)">上一页</a>
         <span class="page-current">1</span>
-        <a class="page-num not-allowed">下一页</a>
-        <a class="page-num media-style-page-end">末页</a>
+        <a class="page-num not-allowed" @click="1<1 && page(2)">下一页</a>
+        <a class="page-num media-style-page-end" @click="page(2)">末页</a>
       </div>
     </div>
 
@@ -77,6 +77,9 @@
         default: 'Vue!'
       }
     },
+    created () {
+      //this.$layer.alert("created");//后台一次性获取数据
+    },
     methods: {
       goBack() {
         window.history.length > 1
@@ -85,6 +88,9 @@
       },
       expand: function (isExpand) {
         this.isExpand = this.isExpand == isExpand? 0: isExpand;
+      },
+      page: function (pageNo) {
+        this.$layer.alert(pageNo);//分页方法
       }
     }
   }
