@@ -10,6 +10,11 @@
         contentList: []
       }
     },
+    watch: {
+      '$route' (to, from) {
+        console.log(to.path);
+      }
+    },
     mounted() {
       this.contentList = [{
         "accessory": "服务器",
