@@ -1,74 +1,26 @@
 <template>
   <div class="home media-style-home">
 
-    <div class="left-panel" v-show="isExpand==0 || isExpand==1">
-      <div class="left-content clear-float">
-        <h4 class="b-title">
-          Docker最新简单易懂使用教程
-        </h4>
-        <div>
-          <ul class="all-tag clear-float media-style-tag-parent">
-            <li><i class="icon iconfont icon-people_fill"></i><span> test</span></li>
-            <li><i class="icon iconfont icon-qiandao"></i> 09-14</li>
-            <li><i class="icon iconfont icon-classify"></i> JAVA</li>
-            <li><i class="icon iconfont icon-accessory"></i> 服务器</li>
-          </ul>
-        </div>
-
-          <!-- 文章描述开始 -->
+    <div v-for='(item, index) in contentList'>
+      <div class="left-panel" v-show="isExpand==0 || isExpand==1+index">
+        <div class="left-content clear-float">
+          <h4 class="b-title">
+            {{item.title}}
+          </h4>
           <div>
-            <p>其实PapaMan在学习docker的过程中，也查阅过很多资料，发现大多数文章要么就是写的很细，面面俱到；要么就是写的很深，跳过基础，却忽略了初学者，和希望了解docker技术的同学们的感受，使他们绕了弯路，或者望而却步……</p>
+            <ul class="all-tag clear-float media-style-tag-parent">
+              <li><i class="icon iconfont icon-people_fill"></i> {{item.people_fill}}</li>
+              <li><i class="icon iconfont icon-qiandao"></i> {{item.qiandao}}</li>
+              <li><i class="icon iconfont icon-classify"></i> {{item.classify}}</li>
+              <li><i class="icon iconfont icon-accessory"></i> {{item.accessory}}</li>
+            </ul>
           </div>
-
-        <div class="tag-tail"><a class="tag-tail-a" :class="{ expand:isExpand == 1}" @click="expand(1)">阅读全文</a></div>
-      </div>
-    </div>
-
-    <div class="left-panel" v-show="isExpand==0 || isExpand==2">
-      <div class="left-content clear-float">
-        <h4 class="b-title">
-          对Docker的理解
-        </h4>
-        <div>
-          <ul class="all-tag clear-float media-style-tag-parent">
-            <li><i class="icon iconfont icon-people_fill"></i><span> test</span></li>
-            <li><i class="icon iconfont icon-qiandao"></i> 09-14</li>
-            <li><i class="icon iconfont icon-classify"></i> JAVA</li>
-            <li><i class="icon iconfont icon-accessory"></i> 服务器</li>
-          </ul>
+          <div>
+            <span v-html="item.summary"></span>
+            <span v-html="item.content"></span>
+          </div>
+          <div class="tag-tail"><a class="tag-tail-a" :class="{ expand:isExpand == 1+index}" @click="expand(1+index)">阅读全文</a></div>
         </div>
-
-        <!-- 文章描述开始 -->
-        <div>
-          <p>
-            我相信看到这篇文章的同学肯定不需要我大讲特讲docker的基本原理，大家一定在概念方面都有了一定的了解，如果还有一些些小模糊的话，看看能不能通过我对于docker在学习过程中的一些理解上的小转变来提供一些帮助。
-          </p>
-        </div>
-
-        <div class="tag-tail"><a class="tag-tail-a" :class="{ expand:isExpand == 2}" @click="expand(2)">阅读全文</a></div>
-      </div>
-    </div>
-
-    <div class="left-panel" v-show="isExpand==0 || isExpand==3">
-      <div class="left-content clear-float">
-        <h4 class="b-title">
-          Docker的使用
-        </h4>
-        <div>
-          <ul class="all-tag clear-float media-style-tag-parent">
-            <li><i class="icon iconfont icon-people_fill"></i><span> test</span></li>
-            <li><i class="icon iconfont icon-qiandao"></i> 09-14</li>
-            <li><i class="icon iconfont icon-classify"></i> JAVA</li>
-            <li><i class="icon iconfont icon-accessory"></i> 服务器</li>
-          </ul>
-        </div>
-
-        <!-- 文章描述开始 -->
-        <div>
-          <p>废话不多说，docker的核心功能一定是启动镜像，也就是run命令，下面我们以nginx为例，介绍如何使用docker启动镜像。</p>
-        </div>
-
-        <div class="tag-tail"><a class="tag-tail-a" :class="{ expand:isExpand == 3}" @click="expand(3)">阅读全文</a></div>
       </div>
     </div>
 
@@ -90,7 +42,33 @@ export default {
   name: 'home',
   data () {
     return {
-      isExpand: 0
+      isExpand: 0,
+      contentList:[{
+        "accessory": "服务器",
+        "classify": "JAVA",
+        "summary": "<p>其实PapaMan在学习docker的过程中，也查阅过很多资料，发现大多数文章要么就是写的很细，面面俱到；要么就是写的很深，跳过基础，却忽略了初学者，和希望了解docker技术的同学们的感受，使他们绕了弯路，或者望而却步；再有就是每个功能介绍的太独立，没有互相联系，也没有例子方便理解。</p>",
+        "content": "<p>PapaMan希望结合自己的学习经验和踩过的坑，以简单使用为主，先忽略掉复杂、不常用的功能，尽量浅显的介绍docker的核心使用方法，做到看了就懂，懂了就能用。</p><p>废话不多说，docker的核心功能一定是启动镜像，也就是run命令，下面我们以nginx为例，介绍如何使用docker启动镜像。</p>",
+        "people_fill": "test",
+        "qiandao": "09-14",
+        "title": "Docker最新简单易懂使用教程"
+      }, {
+        "accessory": "镜像",
+        "classify": "JAVA",
+        "summary": "<p>其实PapaMan在学习docker的过程中，也查阅过很多资料，发现大多数文章要么就是写的很细，面面俱到；要么就是写的很深，跳过基础，却忽略了初学者，和希望了解docker技术的同学们的感受，使他们绕了弯路，或者望而却步；再有就是每个功能介绍的太独立，没有互相联系，也没有例子方便理解。</p>",
+        "content": "<p>PapaMan希望结合自己的学习经验和踩过的坑，以简单使用为主，先忽略掉复杂、不常用的功能，尽量浅显的介绍docker的核心使用方法，做到看了就懂，懂了就能用。</p><p>废话不多说，docker的核心功能一定是启动镜像，也就是run命令，下面我们以nginx为例，介绍如何使用docker启动镜像。</p>",
+        "people_fill": "admin",
+        "qiandao": "09-14",
+        "title": "对Docker的理解"
+      }, {
+        "accessory": "容器",
+        "classify": "JAVA",
+        "summary": "<p>其实PapaMan在学习docker的过程中，也查阅过很多资料，发现大多数文章要么就是写的很细，面面俱到；要么就是写的很深，跳过基础，却忽略了初学者，和希望了解docker技术的同学们的感受，使他们绕了弯路，或者望而却步；再有就是每个功能介绍的太独立，没有互相联系，也没有例子方便理解。</p>",
+        "content": "<p>PapaMan希望结合自己的学习经验和踩过的坑，以简单使用为主，先忽略掉复杂、不常用的功能，尽量浅显的介绍docker的核心使用方法，做到看了就懂，懂了就能用。</p><p>废话不多说，docker的核心功能一定是启动镜像，也就是run命令，下面我们以nginx为例，介绍如何使用docker启动镜像。</p>",
+        "people_fill": "baiai",
+        "qiandao": "09-14",
+        "title": "Docker的使用"
+      }
+      ]
     }
   },
   created () {
