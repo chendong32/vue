@@ -232,12 +232,9 @@
     color: #9d9d9d;
     font-size: 14px;
   }
-
   #app .choose > a {
     color: #ffffff;
   }
-
-
   #app p{
     text-indent:2em;
     text-align:justify!important;

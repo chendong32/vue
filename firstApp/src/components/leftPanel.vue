@@ -1,5 +1,5 @@
 <template>
-  <div class="home media-style-home">
+  <div class="leftPanel media-style-home">
     <div v-for='(item, index) in contentList'>
       <div class="left-panel" v-show="isExpand==0 || isExpand==1+index">
         <div class="left-content clear-float">
@@ -16,9 +16,9 @@
           </div>
           <div>
             <span v-html="item.summary"></span>
-            <span v-html="item.content"></span>
+            <span v-html="item.content" v-show="isExpand==1+index"></span>
           </div>
-          <div class="tag-tail"><a class="tag-tail-a" :class="{ expand:isExpand == 1+index}" @click="expand(1+index)">阅读全文</a></div>
+          <div class="tag-tail"><a class="tag-tail-a" :class="{ expand:isExpand == 1+index}" @click="expand(1+index)">{{isExpand == 0 ? 'expand':'diminish'}}</a></div>
         </div>
       </div>
     </div>
@@ -79,7 +79,7 @@ export default {
 </script>
 
 <style scoped>
-  .home {
+  .leftPanel {
     width: 65%;
     float: left;
   }
@@ -159,7 +159,7 @@ export default {
     .media-style-none {
       display: none!important;
     }
-    .media-style-category,.media-style-chat,.media-style-git,.media-style-home{
+    .media-style-home{
       width: 100%;
     }
   }
