@@ -134,7 +134,6 @@
       }
     },
     methods: {
-
       getPosition: function (event) {
         var el = event.currentTarget;
         var par = event.target.parentElement;
@@ -156,7 +155,7 @@
         $('.nav-active').stop().animate({'left': this.activeLeft, 'width': this.activeWidth}, 300);
       },
       home: function (isSelect) {
-        this.isSelect = this.$route.path;
+        this.isSelect = this.$route.path.indexOf("/choose/")==-1?this.$route.path:"/";
         this.$nextTick(function () {
           this.movePosition();
         })
@@ -427,6 +426,8 @@
   .recommend-style{
     text-align: left;
     width: 100%;
+  }
+  .recommend-style a {
     color: #008CBA;
   }
   input[type=submit] {
