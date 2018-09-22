@@ -5,6 +5,7 @@ import java from '@/components/java'
 import linux from '@/components/linux'
 import git from '@/components/git'
 import chat from '@/components/chat'
+import leftPanel from '@/components/leftPanel'
 
 import VueResource from 'vue-resource'
 import layer from 'vue-layer'
@@ -13,6 +14,8 @@ Vue.prototype.$layer = layer(Vue);
 
 Vue.use(Router)
 Vue.use(VueResource)
+
+Vue.component('leftPanel',leftPanel)
 
 export default new Router({
   routes: [
