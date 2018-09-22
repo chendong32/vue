@@ -92,8 +92,8 @@
       <div class="right-panel">
 
         <div class="b-search">
-          <form class="form-inline" role="form">
-            <input class="b-search-text" type="text" name="search_word">
+          <form @submit.prevent="submit">
+            <input class="b-search-text" type="text" name="search" v-model="search">
             <input class="b-search-submit" type="submit" value="搜索">
           </form>
         </div>
@@ -124,6 +124,7 @@
         isLogin: 1,//奇数为未登录状态
         isLoginFrame: '',
         isShow: true,
+        search:'',
         nav: [
           {title: '首页', url: '/'},
           {title: 'Java', url: '/category/1'},
@@ -180,6 +181,11 @@
             isLogin: this.isLogin
           }
         })
+      },
+      submit: function() {
+        console.log(this.search);
+        this.$router.push({path:"/choose/"+this.search});
+        this.search = '';
       }
     },
     mounted() {/*解决页面刷新时选中状态问题*/
