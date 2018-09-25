@@ -96,6 +96,7 @@ export default {
         this.contentList = contentList;
         this.total = this.contentList.length;
         this.pages = Math.ceil(this.total/this.pageSize);
+        this.isExpand = 0;
         //console.log("pageNo: "+this.pageNo+" pageSize: "+this.pageSize+" total: "+this.total+" pages: "+this.pages);
       }
     },
