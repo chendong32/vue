@@ -68,6 +68,7 @@ export default {
       window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/');
     },
     expand: function (isExpand) {
+      this.backTop();
       this.isExpand = this.isExpand == isExpand? 0: isExpand;
     },
     prevPage: function (pageNo, pageSize) {
@@ -97,6 +98,10 @@ export default {
         this.pages = Math.ceil(this.total/this.pageSize);
         //console.log("pageNo: "+this.pageNo+" pageSize: "+this.pageSize+" total: "+this.total+" pages: "+this.pages);
       }
+    },
+    backTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
     }
   }
 }
