@@ -82,6 +82,7 @@
           <h4 class="b-title">友情链接</h4>
           <ul class="all-tag">
             <li class="recommend-style"><i class="icon iconfont icon-lianjie"></i><a href="http://www.kevinli.com.cn/" target="_blank"> PAPAMAN的个人博客</a></li>
+            <li class="recommend-style"><i class="icon iconfont icon-lianjie"></i><a href="https://smohan.net/blog/" target="_blank"> 水墨寒的博客</a></li>
           </ul>
         </div>
 

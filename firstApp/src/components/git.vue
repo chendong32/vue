@@ -1,16 +1,5 @@
 <template>
   <div class="git media-style-git">
-    <!--<div class="loading" v-if="loading">
-      Loading...
-    </div>-->
-    <!--<div v-if="sites" class="content">
-        <p v-for="site in sites">
-          {{ site.id }}{{ site.name }} {{ site.age }}
-        </p>
-      </div>-->
-    <!--<v-html-panel :url.asyc="url1"></v-html-panel>
-    <v-html-panel :url.asyc="url2"></v-html-panel>
-    <my-component></my-component>-->
 
     <div class="left-panel">
       <div class="left-content clear-float">
@@ -90,16 +79,6 @@
       </div>
     </div>
 
-    <div class="left-panel">
-      <div class="page">
-        <a class="page-num media-style-page-start">首页</a>
-        <a class="page-num not-allowed">上一页</a>
-        <span class="page-current">1</span>
-        <a class="page-num not-allowed">下一页</a>
-        <a class="page-num media-style-page-end">末页</a>
-      </div>
-    </div>
-
   </div>
 </template>
 
@@ -108,38 +87,12 @@
     name: 'git',
     data() {
       return {
-        loading: false,
-        sites: null,
         url1: '',
         url2: ''
       }
     },
     created() {
-      // 组件创建完后获取数据，
-      // 此时 data 已经被 observed 了
       this.fetchData()
-    },
-    watch: {
-      // 如果路由有变化，会再次执行该方法
-      '$route': 'fetchData'
-    },
-    methods: {
-      fetchData() {
-        this.error = this.get = null
-        this.loading = true
-        // replace getPost with your data fetching util / API wrapper
-        this.$http.get('/static/json/data.json').then((get, err) => {
-            this.loading = false
-
-            if (err) {
-              this.error = err.toString()
-            } else {
-              this.sites = get.data.data
-            }
-
-          }
-        )
-      }
     },
     mounted() {
       this.url1 = 'https://api.github.com/repos/chendong32/vue'
@@ -193,37 +146,11 @@
     cursor: pointer;
   }
 
-  .page {
-    padding: 30px 15px;
-    background: #FFF;
-    text-align: center;
-    overflow: hidden;
-  }
-
-  .page-num, .page-current{
-    padding: 8px 11px;
-    margin: 0px 5px;
-    display: inline-block;
-    color: #008CBA;
-    border: 1px solid #F2F2F2;
-    border-radius: 5px;
-  }
-  .page-current{
-    background-color: #008CBA;
-    color: #FFF;
-    border-radius: 5px;
-    border: 1px solid #008CBA;
-  }
-
-  .page a:not(.not-allowed):hover, .tag-tail a:hover{
+  .tag-tail a:hover{
     background-color: #dcdcdc;
     color: #008CBA;
     transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
     cursor: pointer;
-  }
-
-  .not-allowed {
-    cursor: not-allowed;
   }
 
   @media (max-width: 1500px) and (min-width: 0px){

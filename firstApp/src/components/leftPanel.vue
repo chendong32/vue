@@ -1,7 +1,7 @@
 <template>
   <div class="leftPanel media-style-home">
     <div v-for='(item, index) in contentList'>
-      <div class="left-panel" v-show="isExpand==0 || isExpand==1+index">
+      <div class="left-panel" v-show="(isExpand==0 || isExpand==1+index) && pageNo*pageSize > index && pageNo*pageSize <= index + pageSize">
         <div class="left-content clear-float">
           <h4 class="b-title">
             {{item.title}}
@@ -24,11 +24,11 @@
     </div>
     <div class="left-panel" v-show="isExpand==0">
       <div class="page">
-        <a class="page-num media-style-page-start" @click="page(1)">首页</a>
-        <a class="page-num not-allowed" @click="1>1 && page(1)">上一页</a>
-        <span class="page-current">1</span>
-        <a class="page-num not-allowed" @click="1<1 && page(2)">下一页</a>
-        <a class="page-num media-style-page-end" @click="page(2)">末页</a>
+        <a class="page-num media-style-page-start" @click="firstPage(pageNo, pageSize)">首页</a>
+        <a class="page-num" :class="{ notAllowed:pageNo <= 1}"  @click="pageNo>1 && prevPage(pageNo, pageSize)">上一页</a>
+        <span class="page-current">{{pageNo}}</span>
+        <a class="page-num" :class="{ notAllowed:pageNo >= pages}" @click="pageNo<pages && nextPage(pageNo, pageSize)">下一页</a>
+        <a class="page-num media-style-page-end" @click="lastPage(pageNo, pageSize)">末页</a>
       </div>
     </div>
   </div>
@@ -45,7 +45,11 @@ export default {
   data () {
     return {
       isExpand: 0,
-      contentList:[]
+      contentList:[],
+      pageNo: 1,
+      pageSize: 3,
+      total: 0,
+      pages: 0
     }
   },
   created () {
@@ -66,12 +70,32 @@ export default {
     expand: function (isExpand) {
       this.isExpand = this.isExpand == isExpand? 0: isExpand;
     },
-    page: function (pageNo) {
-      this.$layer.alert(pageNo);//分页方法
+    prevPage: function (pageNo, pageSize) {
+      if (pageNo > 1){
+        this.pageNo = pageNo - 1;
+      }
+    },
+    nextPage: function (pageNo, pageSize) {
+      if (pageNo < this.pages){
+        this.pageNo = pageNo + 1;
+      }
+    },
+    firstPage: function (pageNo, pageSize) {
+      if (pageNo != 1){
+        this.pageNo = 1;
+      }
+    },
+    lastPage: function (pageNo, pageSize) {
+      if (pageNo != this.pages){
+        this.pageNo = this.pages;
+      }
     },
     load (contentList) {
       if (contentList && contentList.length > 0) {
         this.contentList = contentList;
+        this.total = this.contentList.length;
+        this.pages = Math.ceil(this.total/this.pageSize);
+        //console.log("pageNo: "+this.pageNo+" pageSize: "+this.pageSize+" total: "+this.total+" pages: "+this.pages);
       }
     }
   }
@@ -131,14 +155,14 @@ export default {
     float: right;
     color: #ffffff;
   }
-  .page a:not(.not-allowed):hover, .tag-tail a:hover{
+  .page a:not(.notAllowed):hover, .tag-tail a:hover{
     background-color: #dcdcdc;
     color: #008CBA;
     transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
     cursor: pointer;
   }
 
-  .not-allowed {
+  .notAllowed {
     cursor: not-allowed;
   }
 
