@@ -61,7 +61,6 @@
           <ul class="all-tag">
             <li class="recommend-style"><i class="icon iconfont icon-diantileimu"></i> <router-link to="/choose/1">Docker最新简单易懂使用教程</router-link></li>
             <li class="recommend-style"><i class="icon iconfont icon-diantileimu"></i> <router-link to="/choose/2">对Docker的理解</router-link></li>
-            <li class="recommend-style"><i class="icon iconfont icon-diantileimu"></i> <router-link to="/choose/3">Docker的使用</router-link></li>
           </ul>
         </div>
 
@@ -72,8 +71,7 @@
           <h4 class="b-title">最新评论</h4>
           <ul class="all-tag">
             <li class="comment-style recommend-style"><span>PapaMan</span> 发表在《<router-link to="/choose/1">Docker最新简单易懂使用教程</router-link>》</li>
-            <li class="comment-style recommend-style"><span>PapaMan</span> 发表在《<router-link to="/choose/1">对Docker的理解</router-link>》</li>
-            <li  class="comment-style comment-end recommend-style"><span>PapaMan</span> 发表在《<router-link to="/choose/1">Docker的使用</router-link>》</li>
+            <li  class="comment-style comment-end recommend-style"><span>PapaMan</span> 发表在《<router-link to="/choose/3">Docker的使用</router-link>》</li>
           </ul>
         </div>
       </div>
