@@ -91,9 +91,6 @@
         url2: ''
       }
     },
-    created() {
-      this.fetchData()
-    },
     mounted() {
       this.url1 = 'https://api.github.com/repos/chendong32/vue'
       this.url2 = 'https://api.github.com/repos/chendong32/activti'
