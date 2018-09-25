@@ -18,7 +18,7 @@
           </div>
           <div class="git-content-style">
             <p>
-              thinkphp整合Auth权限管理、支付宝、微信支付、阿里oss、友盟推送、融云即时通讯、云通讯短信、Email、Excel……
+              {{item.description}}
             </p>
           </div>
           <div class="tag-tail clear-float">
@@ -46,7 +46,8 @@
         "stargazers_count": 0,
         "default_branch": "master",
         "language": "JavaScript",
-        "pushed_at": "2018-09-14T12:38:34Z"
+        "pushed_at": "2018-09-14T12:38:34Z",
+		"description": "vue 整合Auth权限管理、支付宝、微信支付、阿里oss、友盟推送、融云即时通讯、云通讯短信、Email、Excel……"
       },
         {
           "full_name": "chendong32/activiti",
@@ -54,7 +55,8 @@
           "stargazers_count": 0,
           "default_branch": "master",
           "language": "JavaScript",
-          "pushed_at": "2018-09-14T12:38:34Z"
+          "pushed_at": "2018-09-14T12:38:34Z",
+		  "description": "activiti 整合Auth权限管理、支付宝、微信支付、阿里oss、友盟推送、融云即时通讯、云通讯短信、Email、Excel……"
         },
         {
           "full_name": "chendong32/php",
@@ -62,7 +64,8 @@
           "stargazers_count": 0,
           "default_branch": "master",
           "language": "JavaScript",
-          "pushed_at": "2018-09-14T12:38:34Z"
+          "pushed_at": "2018-09-14T12:38:34Z",
+		  "description": "thinkphp 整合Auth权限管理、支付宝、微信支付、阿里oss、友盟推送、融云即时通讯、云通讯短信、Email、Excel……"
         }]
     }
   }
