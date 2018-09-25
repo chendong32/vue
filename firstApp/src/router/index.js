@@ -8,13 +8,18 @@ import git from '@/components/git'
 import chat from '@/components/chat'
 import leftPanel from '@/components/leftPanel'
 
-import VueResource from 'vue-resource'
+/*import VueResource from 'vue-resource'*/
 import layer from 'vue-layer'
+
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 Vue.prototype.$layer = layer(Vue);
 
+Vue.use(VueAxios,axios);
+
 Vue.use(Router)
-Vue.use(VueResource)
+/*Vue.use(VueResource)*/
 
 Vue.component('leftPanel',leftPanel)
 

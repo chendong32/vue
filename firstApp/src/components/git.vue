@@ -1,84 +1,33 @@
 <template>
   <div class="git media-style-git">
 
-    <div class="left-panel">
-      <div class="left-content clear-float">
-        <h4 class="b-title">
-          <i class="icon iconfont icon-github"></i>
-          chendong32/vue
-        </h4>
-        <div>
-          <ul class="all-tag clear-float media-style-tag-parent">
-            <li><i class="icon iconfont icon-browse"></i> 0</li>
-            <li><i class="icon iconfont icon-collection"></i> 0</li>
-            <li><i class="icon iconfont icon-share"></i> master</li>
-            <li><i class="icon iconfont icon-fenlei"></i> JavaScript</li>
-          </ul>
-        </div>
-        <div class="git-content-style">
-          <p>
-            thinkphp整合Auth权限管理、支付宝、微信支付、阿里oss、友盟推送、融云即时通讯、云通讯短信、Email、Excel、PDF等等；基于thinkphp扩展了大量的功能；而不改动thinkphp核心；非常方便的升级、移植和使用；
-          </p>
-        </div>
-        <div class="tag-tail clear-float">
-          <div class="tag-left-style media-style-tag">Latest commit <strong>2018-09-14</strong></div>
-          <a href="https://codeload.github.com/chendong32/vue/zip/master" class="tag-tail-a">Download ZIP</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="left-panel">
-      <div class="left-content clear-float">
-        <h4 class="b-title">
-          <i class="icon iconfont icon-github"></i>
-          chendong32/vue
-        </h4>
-        <div>
-          <ul class="all-tag clear-float media-style-tag-parent">
-            <li><i class="icon iconfont icon-browse"></i> 0</li>
-            <li><i class="icon iconfont icon-collection"></i> 0</li>
-            <li><i class="icon iconfont icon-share"></i> master</li>
-            <li><i class="icon iconfont icon-fenlei"></i> JavaScript</li>
-          </ul>
-        </div>
-        <div class="git-content-style">
-          <p>
-            thinkphp整合Auth权限管理、支付宝、微信支付、阿里oss、友盟推送、融云即时通讯、云通讯短信、Email、Excel、PDF等等；基于thinkphp扩展了大量的功能；而不改动thinkphp核心；非常方便的升级、移植和使用；
-          </p>
-        </div>
-        <div class="tag-tail clear-float">
-          <div class="tag-left-style media-style-tag">Latest commit <strong>2018-09-14</strong></div>
-          <a href="https://codeload.github.com/chendong32/vue/zip/master" class="tag-tail-a">Download ZIP</a>
+    <div v-for='(item, index) in contentList'>
+      <div class="left-panel">
+        <div class="left-content clear-float">
+          <h4 class="b-title">
+            <i class="icon iconfont icon-github"></i>
+            {{item.full_name}}
+          </h4>
+          <div>
+            <ul class="all-tag clear-float media-style-tag-parent">
+              <li><i class="icon iconfont icon-browse"></i> {{item.watchers}}</li>
+              <li><i class="icon iconfont icon-collection"></i> {{item.stargazers_count}}</li>
+              <li><i class="icon iconfont icon-share"></i> {{item.default_branch}}</li>
+              <li><i class="icon iconfont icon-fenlei"></i> {{item.language}}</li>
+            </ul>
+          </div>
+          <div class="git-content-style">
+            <p>
+              thinkphp整合Auth权限管理、支付宝、微信支付、阿里oss、友盟推送、融云即时通讯、云通讯短信、Email、Excel……
+            </p>
+          </div>
+          <div class="tag-tail clear-float">
+            <div class="tag-left-style media-style-tag">Latest commit <strong>{{item.pushed_at.substr(0,11)}}</strong></div>
+            <a :href="'https://codeload.github.com/'+item.full_name+'/zip/'+item.default_branch" class="tag-tail-a">Download ZIP</a>
+          </div>
         </div>
       </div>
     </div>
-
-    <div class="left-panel">
-      <div class="left-content clear-float">
-        <h4 class="b-title">
-          <i class="icon iconfont icon-github"></i>
-          chendong32/vue
-        </h4>
-        <div>
-          <ul class="all-tag clear-float media-style-tag-parent">
-            <li><i class="icon iconfont icon-browse"></i> 0</li>
-            <li><i class="icon iconfont icon-collection"></i> 0</li>
-            <li><i class="icon iconfont icon-share"></i> master</li>
-            <li><i class="icon iconfont icon-fenlei"></i> JavaScript</li>
-          </ul>
-        </div>
-        <div class="git-content-style">
-          <p>
-            thinkphp整合Auth权限管理、支付宝、微信支付、阿里oss、友盟推送、融云即时通讯、云通讯短信、Email、Excel……
-          </p>
-        </div>
-        <div class="tag-tail clear-float">
-          <div class="tag-left-style media-style-tag">Latest commit <strong>2018-09-14</strong></div>
-          <a href="https://codeload.github.com/chendong32/vue/zip/master" class="tag-tail-a">Download ZIP</a>
-        </div>
-      </div>
-    </div>
-
   </div>
 </template>
 
@@ -87,13 +36,34 @@
     name: 'git',
     data() {
       return {
-        url1: '',
-        url2: ''
+        contentList: []
       }
     },
     mounted() {
-      this.url1 = 'https://api.github.com/repos/chendong32/vue'
-      this.url2 = 'https://api.github.com/repos/chendong32/activti'
+      this.contentList = [{
+        "full_name": "chendong32/vue",
+        "watchers": 0,
+        "stargazers_count": 0,
+        "default_branch": "master",
+        "language": "JavaScript",
+        "pushed_at": "2018-09-14T12:38:34Z"
+      },
+        {
+          "full_name": "chendong32/activiti",
+          "watchers": 0,
+          "stargazers_count": 0,
+          "default_branch": "master",
+          "language": "JavaScript",
+          "pushed_at": "2018-09-14T12:38:34Z"
+        },
+        {
+          "full_name": "chendong32/php",
+          "watchers": 0,
+          "stargazers_count": 0,
+          "default_branch": "master",
+          "language": "JavaScript",
+          "pushed_at": "2018-09-14T12:38:34Z"
+        }]
     }
   }
 </script>
@@ -104,22 +74,23 @@
     float: left;
   }
 
-  .left-content{
+  .left-content {
     padding: 20px;
   }
 
-  .left-panel{
+  .left-panel {
     overflow: hidden;
     background: #FFF;
     box-shadow: 0 1px 2px 0 #E2E2E2;
     margin-bottom: 20px;
   }
 
-  .all-tag li{
+  .all-tag li {
     float: left;
     margin-right: 2em;
   }
-  .tag-tail-a{
+
+  .tag-tail-a {
     background-color: #008CBA;
     display: block;
     padding: 0 10px;
@@ -136,64 +107,74 @@
     line-height: 20px;
   }
 
-  .tag-tail a:hover{
+  .tag-tail a:hover {
     background-color: #dcdcdc;
     color: #008CBA;
     transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
     cursor: pointer;
   }
 
-  .tag-tail a:hover{
+  .tag-tail a:hover {
     background-color: #dcdcdc;
     color: #008CBA;
     transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
     cursor: pointer;
   }
 
-  @media (max-width: 1500px) and (min-width: 0px){
+  @media (max-width: 1500px) and (min-width: 0px) {
     .media-style-pad {
       padding: 0 3em;
     }
+
     .down-container {
       padding: 6em 3em 0;
     }
   }
-  @media (max-width: 1200px) and (min-width: 0px){
+
+  @media (max-width: 1200px) and (min-width: 0px) {
     .media-style-none {
-      display: none!important;
+      display: none !important;
     }
-    .media-style-category,.media-style-chat,.media-style-git,.media-style-home{
+
+    .media-style-category, .media-style-chat, .media-style-git, .media-style-home {
       width: 100%;
     }
   }
-  @media (max-width: 820px) and (min-width: 0px){
-    .media-style-nav-parent{
+
+  @media (max-width: 820px) and (min-width: 0px) {
+    .media-style-nav-parent {
       position: absolute;
     }
-    .media-style-nav-parent li:nth-child(5), .media-style-nav-parent li:last-child{
+
+    .media-style-nav-parent li:nth-child(5), .media-style-nav-parent li:last-child {
       display: none;
     }
   }
-  @media (max-width: 600px) and (min-width: 0px){
+
+  @media (max-width: 600px) and (min-width: 0px) {
     .media-style-pad {
       padding: 0 1em;
     }
+
     .down-container {
       padding: 6em 1em 0;
     }
-    .media-style-nav-parent li:nth-child(5), .media-style-nav-parent li:last-child, .media-style-tag-parent li:nth-child(4){
+
+    .media-style-nav-parent li:nth-child(5), .media-style-nav-parent li:last-child, .media-style-tag-parent li:nth-child(4) {
       display: none;
     }
   }
-  @media (max-width: 400px) and (min-width: 0px){
+
+  @media (max-width: 400px) and (min-width: 0px) {
     .media-style-tag-parent li:nth-child(4), .media-style-page-start, .media-style-page-end {
       display: none;
     }
+
     .media-style-tag {
       width: 55%;
       white-space: nowrap;
-      text-overflow:ellipsis;
-      overflow:hidden;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
   }
 </style>
