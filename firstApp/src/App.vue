@@ -155,7 +155,7 @@
         $('.nav-active').stop().animate({'left': this.activeLeft, 'width': this.activeWidth}, 300);
       },
       home: function (isSelect) {
-        this.isSelect = this.$route.path.indexOf("/choose/")==-1?this.$route.path:"/";
+        this.isSelect = this.$route.path.indexOf("/choose/")==-1?this.$route.path:"/chat";
         this.$nextTick(function () {
           this.movePosition();
         })

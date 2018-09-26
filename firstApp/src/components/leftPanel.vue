@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <div class="left-panel" v-show="isExpand==0">
+    <div class="left-panel" v-show="isExpand==0 && total>1">
       <div class="page">
         <a class="page-num media-style-page-start" @click="firstPage(pageNo, pageSize)">首页</a>
         <a class="page-num" :class="{ notAllowed:pageNo <= 1}"  @click="pageNo>1 && prevPage(pageNo, pageSize)">上一页</a>
@@ -69,36 +69,48 @@ export default {
     },
     expand: function (isExpand) {
       this.backTop();
-      this.isExpand = this.isExpand == isExpand? 0: isExpand;
+      if(this.total==1){
+        this.$router.push('/');
+      }else{
+        this.isExpand = this.isExpand == isExpand? 0: isExpand;
+      }
     },
     prevPage: function (pageNo, pageSize) {
+      this.backTop();
       if (pageNo > 1){
         this.pageNo = pageNo - 1;
       }
     },
     nextPage: function (pageNo, pageSize) {
+      this.backTop();
       if (pageNo < this.pages){
         this.pageNo = pageNo + 1;
       }
     },
     firstPage: function (pageNo, pageSize) {
+      this.backTop();
       if (pageNo != 1){
         this.pageNo = 1;
       }
     },
     lastPage: function (pageNo, pageSize) {
+      this.backTop();
       if (pageNo != this.pages){
         this.pageNo = this.pages;
       }
     },
     load (contentList) {
-      if (contentList && contentList.length > 0) {
+      if (contentList && contentList.length >= 0) {
         this.contentList = contentList;
         this.total = this.contentList.length;
         this.pages = Math.ceil(this.total/this.pageSize);
-        this.isExpand = 0;
         this.pageNo = 1;
         this.pageSize = 3;
+        if(this.total==1){
+          this.isExpand = 1
+        } else {
+          this.isExpand = 0;
+        }
         //console.log("pageNo: "+this.pageNo+" pageSize: "+this.pageSize+" total: "+this.total+" pages: "+this.pages);
       }
     },

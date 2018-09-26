@@ -14,11 +14,8 @@
       load:function (id) {
         this.axios.get('static/json/'+id+'.json').then((response)=>{
           this.contentList=response.data;
-          if(this.contentList.length == 0){
-            this.contentList = []
-          }
         }).catch((response)=>{
-          this.$router.push('/')
+          this.$router.push('/');
         })
       }
     },
