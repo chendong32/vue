@@ -44,11 +44,9 @@
         <div class="b-tags">
           <h4 class="b-title">热门标签</h4>
           <ul class="all-tag">
-            <li class="tag-a-color"><router-link to="/choose/docker" class="tag-style">docker</router-link></li>
-            <li class="tag-a-color"><router-link to="/choose/linux" class="tag-style">linux</router-link></li>
-            <li class="tag-a-color"><router-link to="/choose/nginx" class="tag-style">nginx</router-link></li>
-            <li class="tag-a-color"><router-link to="/choose/images" class="tag-style">镜像</router-link></li>
-            <li class="tag-a-color"><router-link to="/choose/server" class="tag-style">服务器</router-link></li>
+            <li v-for="item in tag" class="tag-a-color">
+              <router-link :to="{path:item.url}" class="tag-style">{{item.title}}</router-link>
+            </li>
           </ul>
         </div>
 
@@ -59,8 +57,9 @@
         <div class="b-tags">
           <h4 class="b-title">置顶推荐</h4>
           <ul class="all-tag">
-            <li class="recommend-style"><i class="icon iconfont icon-diantileimu"></i> <router-link to="/choose/1">Docker最新简单易懂使用教程</router-link></li>
-            <li class="recommend-style"><i class="icon iconfont icon-diantileimu"></i> <router-link to="/choose/2">对Docker的理解</router-link></li>
+            <li v-for="(item, index) in recommend" class="comment-style recommend-style"  :class="{'comment-end':comment.length == 1+index}">
+              <i class="icon iconfont icon-diantileimu"></i> <router-link :to="{path:item.url}">{{item.title}}</router-link>
+            </li>
           </ul>
         </div>
 
@@ -70,8 +69,9 @@
         <div class="b-tags">
           <h4 class="b-title">最新评论</h4>
           <ul class="all-tag">
-            <li class="comment-style recommend-style"><span>PapaMan</span> 发表在《<router-link to="/choose/1">Docker最新简单易懂使用教程</router-link>》</li>
-            <li  class="comment-style comment-end recommend-style"><span>PapaMan</span> 发表在《<router-link to="/choose/3">Docker的使用</router-link>》</li>
+            <li v-for="(item, index) in comment" class="comment-style recommend-style"  :class="{'comment-end':comment.length == 1+index}">
+              <span>{{item.name}}</span> 发表在《<router-link :to="{path:item.url}">{{item.title}}</router-link>》
+            </li>
           </ul>
         </div>
       </div>
@@ -81,8 +81,9 @@
         <div class="b-tags">
           <h4 class="b-title">友情链接</h4>
           <ul class="all-tag">
-            <li class="recommend-style"><i class="icon iconfont icon-lianjie"></i><a href="http://www.kevinli.com.cn/" target="_blank"> PAPAMAN的个人博客</a></li>
-            <li class="recommend-style"><i class="icon iconfont icon-lianjie"></i><a href="https://smohan.net/blog/" target="_blank"> 水墨寒的博客</a></li>
+            <li v-for="(item, index) in link" class="comment-style recommend-style"  :class="{'comment-end':comment.length == 1+index}">
+              <i class="icon iconfont icon-lianjie"></i><a :href="item.url" target="_blank"> {{item.title}}</a>
+            </li>
           </ul>
         </div>
 
@@ -130,8 +131,39 @@
           {title: 'Linux', url: '/category/2'},
           {title: 'Git', url: '/git'},
           {title: '文章留言', url: '/chat'}
-        ]
+        ],
+        tag: [],
+        recommend: [],
+        comment: [],
+        link: []
       }
+    },
+    created(){
+      this.axios.get('static/json/nav.json').then((response) => {
+        this.nav = response.data;
+      }).catch((response) => {
+        console.log(response);
+      });
+      this.axios.get('static/json/tag.json').then((response) => {
+        this.tag = response.data;
+      }).catch((response) => {
+        console.log(response);
+      });
+      this.axios.get('static/json/recommend.json').then((response) => {
+        this.recommend = response.data;
+      }).catch((response) => {
+        console.log(response);
+      });
+      this.axios.get('static/json/comment.json').then((response) => {
+        this.comment = response.data;
+      }).catch((response) => {
+        console.log(response);
+      });
+      this.axios.get('static/json/link.json').then((response) => {
+        this.link = response.data;
+      }).catch((response) => {
+        console.log(response);
+      });
     },
     methods: {
       getPosition: function (event) {
