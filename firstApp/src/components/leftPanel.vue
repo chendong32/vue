@@ -118,10 +118,6 @@ export default {
         this.isLoading = 0;
         //console.log("pageNo: "+this.pageNo+" pageSize: "+this.pageSize+" total: "+this.total+" pages: "+this.pages);
       }
-    },
-    backTop() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
     }
   }
 }
