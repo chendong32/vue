@@ -229,6 +229,7 @@
     },
     watch:{/* 监听,当路由发生变化的时候执行*/
       $route(to,from){
+        this.backTop();
         this.home();
         if(to.path == "/chat"){
           this.isShow = false;
