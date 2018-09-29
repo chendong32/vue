@@ -7,6 +7,7 @@ import choose from '@/components/choose'
 import git from '@/components/git'
 import chat from '@/components/chat'
 import leftPanel from '@/components/leftPanel'
+import loading from '@/components/loading'
 
 /*import VueResource from 'vue-resource'*/
 import layer from 'vue-layer'
@@ -22,6 +23,7 @@ Vue.use(Router)
 /*Vue.use(VueResource)*/
 
 Vue.component('leftPanel',leftPanel)
+Vue.component('loading',loading)
 
 export default new Router({
   routes: [

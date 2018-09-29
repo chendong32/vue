@@ -1,10 +1,11 @@
 <template>
   <div class="chat media-style-chat">
+    <loading :result.asyc="isLoading"></loading>
 
     <div class="left-panel">
       <div class="left-content clear-float">
         <div class="clear-float" :class="{'tag-tail':isLogin==0}">
-          <div class="tag-left-style media-style-tag">Latest comment <strong>2018-09-14</strong></div>
+          <div class="tag-left-style media-style-tag">Latest comment <strong>{{contentList[0].titleShort[0].qiandao}}</strong></div>
           <a class="tag-tail-a" @click="isLogin==0 && comment()" :class="{'not-allowed':isLogin==1}">comment</a>
         </div>
         <div class="time-line media-time-line">
@@ -44,6 +45,7 @@
         isLogin: 1,//默认是未登录状态，无法提交评论
         isCommentFrame: '',
         isComment: 0,
+        isLoading: 1,//默认是加载中
         contentList: [{
           titleShort: [{
             content: "关于为什么用nginx举例子，哈哈，前几天公司的技术部门来请教我组长，centos上的nginx怎么装，两个人聊了半天什么下载啊、配置啊、为什么启动不了之类的。我默默的说了一句，用docker起一个呗，他楞了一下，我在终端里敲了一行指令docker run -d -p 80:80 nginx，然后打开 http://localhost 页面给他看，他愣住了。。。",
@@ -87,6 +89,7 @@
           this.contentList = response.data;
           var month = new Date().getMonth() + 1;
           this.tileLogShow =  month >= 1 && month <= 9 ? "0" + month + "月" : month + "月";
+          this.isLoading = 0;
         }).catch((response) => {
           console.log(response);
         })
