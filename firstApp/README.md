@@ -28,3 +28,8 @@ npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+Vue中this.$router.push参数获取
+this.$router.push() 方法中path不能和params一起使用
+1)页面通过name和params传递参数
+2)页面通过path和query传递参数

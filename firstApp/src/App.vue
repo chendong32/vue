@@ -26,9 +26,6 @@
           <li class="nav-child nav-tail" v-show="isLogin">
             <a @click="login">登录</a>
           </li>
-          <li class="nav-child nav-tail" v-show="!isLogin">
-            <a @click="logout">退出</a>
-          </li>
         </ul>
       </div>
     </div>
@@ -202,16 +199,6 @@
           area:['308px','300px'],
           title:"Sign in to BaiaI"
         });
-      },
-      logout:function () {
-        console.log("logout");
-        this.isLogin = 1;//主动登出，状态重置为未登录状态(当前业务逻辑不会触发主动退出)
-        this.$router.push({
-          name: '文章留言',
-          params: {
-            isLogin: this.isLogin
-          }
-        })
       },
       submit: function() {
         console.log(this.search);
