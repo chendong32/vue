@@ -1,6 +1,6 @@
 <template>
-  <div v-show="isLoading == 1">
-    <div class="timeline-item">
+
+    <div class="timeline-item" v-show="isLoading == 1">
       <div class="animated-background">
         <div class="background-masker header-top"></div>
         <div class="background-masker header-left"></div>
@@ -11,7 +11,7 @@
         <div class="background-masker subheader-bottom"></div>
       </div>
     </div>
-  </div>
+
 </template>
 <script>
   export default {
@@ -28,7 +28,6 @@
     },
     watch: {
       result(value) {
-        console.log(value);
         this.load(value);
       }
     },
@@ -38,10 +37,10 @@
     methods: {
       load(isLoading) {
         let that = this;
-        console.log("load: " + this.isLoading + " chat: " + isLoading);
+        //console.log("curVal: "+isLoading+" oldVal: "+this.isLoading);
         setTimeout(function () {
           that.isLoading = isLoading;
-        }, 200);
+        }, 300);
       }
     }
   }

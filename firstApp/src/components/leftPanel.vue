@@ -1,5 +1,7 @@
 <template>
   <div class="leftPanel media-style-home">
+    <loading :result.asyc="isLoading"></loading>
+
     <div v-for='(item, index) in contentList'>
       <div class="left-panel" v-show="(isExpand==0 || isExpand==1+index) && pageNo*pageSize > index && pageNo*pageSize <= index + pageSize">
         <div class="left-content clear-float">
@@ -46,6 +48,7 @@ export default {
     return {
       isExpand: 0,
       contentList:[],
+      isLoading: 1,//默认是加载中
       pageNo: 1,
       pageSize: 3,
       total: 0,
@@ -57,7 +60,8 @@ export default {
   },
   watch: {
     result (value) {
-      this.load(value)
+      this.isLoading = 1;
+      this.load(value);
     }
   },
   mounted () {
@@ -111,6 +115,7 @@ export default {
         } else {
           this.isExpand = 0;
         }
+        this.isLoading = 0;
         //console.log("pageNo: "+this.pageNo+" pageSize: "+this.pageSize+" total: "+this.total+" pages: "+this.pages);
       }
     },

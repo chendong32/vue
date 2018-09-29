@@ -1,5 +1,6 @@
 <template>
   <div class="git media-style-git">
+    <loading :result.asyc="isLoading"></loading>
 
     <div v-for='(item, index) in contentList'>
       <div class="left-panel">
@@ -36,6 +37,7 @@
     name: 'git',
     data() {
       return {
+        isLoading: 1,//默认是加载中
         contentList: []
       }
     },
@@ -66,7 +68,8 @@
           "language": "JavaScript",
           "pushed_at": "2018-09-14T12:38:34Z",
 		  "description": "thinkphp 整合Auth权限管理、支付宝、微信支付、阿里oss、友盟推送、融云即时通讯、云通讯短信、Email、Excel……"
-        }]
+        }];
+      this.isLoading = 0;
     }
   }
 </script>
