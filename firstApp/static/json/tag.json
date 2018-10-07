@@ -1,5 +1,5 @@
 [{"title": "docker", "url": "/choose/docker"},
   {"title": "linux", "url": "/choose/linux"},
   {"title": "nginx", "url": "/choose/nginx"},
-  {"title": "镜像", "url": "/choose/images"},
-  {"title": "服务器", "url": "/choose/server"}]
+  {"title": "镜像", "url": "/choose/镜像"},
+  {"title": "服务器", "url": "/choose/服务器"}]

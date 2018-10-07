@@ -12,7 +12,7 @@
     },
     methods: {
       load:function (id) {
-        this.axios.get('static/json/'+id+'.json').then((response)=>{
+        this.axios.get('api/choose/'+id).then((response)=>{
           this.contentList=response.data;
         }).catch((response)=>{
           this.$router.push('/');
