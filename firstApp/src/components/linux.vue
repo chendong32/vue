@@ -21,7 +21,7 @@
           qiandao: "09-14",
           title: "Docker最新简单易懂使用教程"
         }];
-        this.axios.get('static/json/linux.json').then((response)=>{
+        this.axios.get('api/category/2').then((response)=>{
           this.contentList=response.data;
         }).catch((response)=>{
           console.log(response);

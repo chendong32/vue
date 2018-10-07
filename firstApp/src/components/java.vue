@@ -21,7 +21,7 @@
           qiandao: "09-14",
           title: "对Docker的理解"
         }];
-        this.axios.get('static/json/java.json').then((response)=>{
+        this.axios.get('api/category/1').then((response)=>{
           this.contentList=response.data;
         }).catch((response)=>{
           console.log(response);

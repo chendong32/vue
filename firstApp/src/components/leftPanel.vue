@@ -10,10 +10,10 @@
           </h4>
           <div>
             <ul class="all-tag clear-float media-style-tag-parent">
-              <li><i class="icon iconfont icon-people_fill"></i> {{item.people_fill}}</li>
-              <li><i class="icon iconfont icon-qiandao"></i> {{item.qiandao}}</li>
-              <li><i class="icon iconfont icon-classify"></i> {{item.classify}}</li>
-              <li><i class="icon iconfont icon-accessory"></i> {{item.accessory}}</li>
+              <li><i class="icon iconfont icon-people_fill"></i> {{item.peopleFill}}</li>
+              <li><i class="icon iconfont icon-qiandao"></i> {{item.qiandao.substring(5)}}</li>
+              <li><i class="icon iconfont icon-classify"></i> {{item.classify.title}}</li>
+              <li><i class="icon iconfont icon-accessory"></i> {{item.accessory.title}}</li>
             </ul>
           </div>
           <div>
