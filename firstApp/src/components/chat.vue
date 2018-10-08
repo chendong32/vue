@@ -5,7 +5,8 @@
     <div class="left-panel">
       <div class="left-content clear-float">
         <div class="clear-float" :class="{'tag-tail':isLogin==0}">
-          <div class="tag-left-style media-style-tag">Latest comment <strong>{{contentList[0].titleShort[0].qiandao}}</strong></div>
+          <div class="tag-left-style media-style-tag">Latest comment
+            <strong>{{contentList[0].titleShort[0].chatPrimaryKey.qiandao}}</strong></div>
           <a class="tag-tail-a" @click="isLogin==0 && comment()" :class="{'not-allowed':isLogin==1}">comment</a>
         </div>
         <div class="time-line media-time-line">
@@ -18,12 +19,12 @@
               <div v-for='(shorts, index) in item.titleShort'>
                 <div class="clear-float time-short-inline">
                   <hr class="time-length-short"/>
-                  <div class="time-title-short"><strong>{{shorts.people_fill}}</strong>
-                    <router-link to="/choose/2">{{shorts.title}}</router-link>
+                  <div class="time-title-short"><strong>{{shorts.chatPrimaryKey.peopleFill}}</strong>
+                    <router-link :to="'/choose/'+shorts.chatPrimaryKey.id">{{shorts.title}}</router-link>
                   </div>
                 </div>
                 <div class="time-content media-time-content">
-                  <p>{{shorts.content}}</p>
+                  <p>{{shorts.summary}}</p>
                 </div>
               </div>
             </div>
@@ -48,24 +49,24 @@
         isLoading: 1,//默认是加载中
         contentList: [{
           titleShort: [{
-            content: "关于为什么用nginx举例子，哈哈，前几天公司的技术部门来请教我组长，centos上的nginx怎么装，两个人聊了半天什么下载啊、配置啊、为什么启动不了之类的。我默默的说了一句，用docker起一个呗，他楞了一下，我在终端里敲了一行指令docker run -d -p 80:80 nginx，然后打开 http://localhost 页面给他看，他愣住了。。。",
-            people_fill: "PapaMan",
-            qiandao: "09-14",
-            title: "Docker最新简单易懂使用教程"
-          },
-            {
-              content: "PapaMan希望结合自己的学习经验和踩过的坑，以简单使用为主，先忽略掉复杂、不常用的功能，尽量浅显的介绍docker的核心使用方法，做到看了就懂，懂了就能用。",
-              people_fill: "PapaMan",
-              qiandao: "09-10",
-              title: "对Docker的理解"
-            }
-          ],
+            chatPrimaryKey: {id: 3, peopleFill: "PapaMan", qiandao: "2018-10-08"},
+            title: "Docker的使用",
+            summary: "PapaMan希望结合自己的学习经验和踩过的坑，以简单使用为主，先忽略掉复杂、不常用的功能，尽量浅显的介绍docker的核心使用方法，做到看了就懂，懂了就能用。"
+          }],
+          titleLong: "10月"
+        }, {
+          titleShort: [{
+            chatPrimaryKey: {id: 2, peopleFill: "PapaMan", qiandao: "2018-09-14"},
+            title: "对Docker的理解",
+            summary: "PapaMan希望结合自己的学习经验和踩过的坑，以简单使用为主，先忽略掉复杂、不常用的功能，尽量浅显的介绍docker的核心使用方法，做到看了就懂，懂了就能用。"
+          }, {
+            chatPrimaryKey: {id: 1, peopleFill: "PapaMan", qiandao: "2018-09-10"},
+            title: "Docker最新简单易懂使用教程",
+            summary: "关于为什么用nginx举例子，哈哈，前几天公司的技术部门来请教我组长，centos上的nginx怎么装，两个人聊了半天什么下载啊、配置啊、为什么启动不了之类的。我默默的说了一句，用docker起一个呗，他楞了一下，我在终端里敲了一行指令docker run -d -p 80:80 nginx，然后打开 http://localhost 页面给他看，他愣住了。。。"
+          }],
           titleLong: "09月"
-        },{
-          titleShort: [],
-          titleLong: "08月"
         }],
-        tileLogShow:''
+        tileLogShow: ''
       }
     },
     created() {
@@ -85,10 +86,10 @@
         });
       },
       load: function () {
-        this.axios.get('static/json/chat.json').then((response) => {
+        this.axios.get('api/chat').then((response) => {
           this.contentList = response.data;
           var month = new Date().getMonth() + 1;
-          this.tileLogShow =  month >= 1 && month <= 9 ? "0" + month + "月" : month + "月";
+          this.tileLogShow = month >= 1 && month <= 9 ? "0" + month + "月" : month + "月";
           this.isLoading = 0;
         }).catch((response) => {
           console.log(response);

@@ -23,7 +23,7 @@
     },
     data() {
       return {
-        isLoading: 0 //1.开启loading，0.关闭loading
+        isLoading: 1 //1.开启loading，0.关闭loading
       }
     },
     watch: {

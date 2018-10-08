@@ -42,7 +42,7 @@
           <h4 class="b-title">热门标签</h4>
           <ul class="all-tag">
             <li v-for="item in tag" class="tag-a-color">
-              <router-link :to="{path:item.url}" class="tag-style">{{item.title}}</router-link>
+              <router-link :to="'/choose/'+item" class="tag-style">{{item}}</router-link>
             </li>
           </ul>
         </div>
@@ -55,7 +55,7 @@
           <h4 class="b-title">置顶推荐</h4>
           <ul class="all-tag">
             <li v-for="(item, index) in recommend" class="comment-style recommend-style"  :class="{'comment-end':comment.length == 1+index}">
-              <i class="icon iconfont icon-diantileimu"></i> <router-link :to="{path:item.url}">{{item.title}}</router-link>
+              <i class="icon iconfont icon-diantileimu"></i> <router-link :to="'/choose/'+item.id">{{item.title}}</router-link>
             </li>
           </ul>
         </div>
@@ -67,7 +67,7 @@
           <h4 class="b-title">最新评论</h4>
           <ul class="all-tag">
             <li v-for="(item, index) in comment" class="comment-style recommend-style"  :class="{'comment-end':comment.length == 1+index}">
-              <span>{{item.name}}</span> 发表在《<router-link :to="{path:item.url}">{{item.title}}</router-link>》
+              <span>{{item.chatPrimaryKey.peopleFill}}</span> 发表在《<router-link :to="'/choose/'+item.chatPrimaryKey.id">{{item.title}}</router-link>》
             </li>
           </ul>
         </div>
@@ -136,27 +136,27 @@
       }
     },
     created(){
-      this.axios.get('static/json/nav.json').then((response) => {
+      this.axios.get('api/nav').then((response) => {
         this.nav = response.data;
       }).catch((response) => {
         console.log(response);
       });
-      this.axios.get('static/json/tag.json').then((response) => {
+      this.axios.get('api/tag').then((response) => {
         this.tag = response.data;
       }).catch((response) => {
         console.log(response);
       });
-      this.axios.get('static/json/recommend.json').then((response) => {
+      this.axios.get('api/recommend').then((response) => {
         this.recommend = response.data;
       }).catch((response) => {
         console.log(response);
       });
-      this.axios.get('static/json/comment.json').then((response) => {
+      this.axios.get('api/comment').then((response) => {
         this.comment = response.data;
       }).catch((response) => {
         console.log(response);
       });
-      this.axios.get('static/json/link.json').then((response) => {
+      this.axios.get('api/link').then((response) => {
         this.link = response.data;
       }).catch((response) => {
         console.log(response);

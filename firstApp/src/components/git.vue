@@ -41,35 +41,18 @@
         contentList: []
       }
     },
+    methods: {
+      load: function () {
+        this.axios.get('api/git').then((response) => {
+          this.contentList = response.data;
+          this.isLoading = 0;
+        }).catch((response) => {
+          console.log(response);
+        })
+      }
+    },
     mounted() {
-      this.contentList = [{
-        "full_name": "chendong32/vue",
-        "watchers": 0,
-        "stargazers_count": 0,
-        "default_branch": "master",
-        "language": "JavaScript",
-        "pushed_at": "2018-09-14T12:38:34Z",
-		"description": "vue 整合Auth权限管理、支付宝、微信支付、阿里oss、友盟推送、融云即时通讯、云通讯短信、Email、Excel……"
-      },
-        {
-          "full_name": "chendong32/activiti",
-          "watchers": 0,
-          "stargazers_count": 0,
-          "default_branch": "master",
-          "language": "JavaScript",
-          "pushed_at": "2018-09-14T12:38:34Z",
-		  "description": "activiti 整合Auth权限管理、支付宝、微信支付、阿里oss、友盟推送、融云即时通讯、云通讯短信、Email、Excel……"
-        },
-        {
-          "full_name": "chendong32/php",
-          "watchers": 0,
-          "stargazers_count": 0,
-          "default_branch": "master",
-          "language": "JavaScript",
-          "pushed_at": "2018-09-14T12:38:34Z",
-		  "description": "thinkphp 整合Auth权限管理、支付宝、微信支付、阿里oss、友盟推送、融云即时通讯、云通讯短信、Email、Excel……"
-        }];
-      this.isLoading = 0;
+      this.load();
     }
   }
 </script>
